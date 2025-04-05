@@ -145,7 +145,7 @@ const LoginRegister = ({ isLogin = true }) => {
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+1 (555) 000-0000"
+                  placeholder="+91 (555) 000-0000"
                   required
                 />
               </div>
