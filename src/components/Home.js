@@ -29,7 +29,7 @@ const Home = () => {
   const userId = 1; // Hardcoded for demo
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/products')
+    fetch('https://trial-for-backend.onrender.com/api/products')
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
@@ -37,7 +37,7 @@ const Home = () => {
       })
       .catch((error) => console.error('Error fetching products:', error));
 
-    fetch(`http://localhost:8080/api/cart/${userId}`)
+    fetch(`https://trial-for-backend.onrender.com/api/cart/${userId}`)
       .then((response) => response.json())
       .then((data) => setCart(data.items || []))
       .catch((error) => console.error('Error fetching cart:', error));
@@ -112,8 +112,8 @@ const Home = () => {
 
     try {
       const url = editProduct
-        ? `http://localhost:8080/api/products/${editProduct.id}`
-        : 'http://localhost:8080/api/products';
+        ? `https://trial-for-backend.onrender.com/api/products/${editProduct.id}`
+        : 'https://trial-for-backend.onrender.com/api/products';
       
       const response = await fetch(url, {
         method: editProduct ? 'PUT' : 'POST',
@@ -158,7 +158,7 @@ const Home = () => {
   const addToCart = async (product) => {
     if (product.stock) {
       try {
-        const response = await fetch('http://localhost:8080/api/cart/add', {
+        const response = await fetch('https://trial-for-backend.onrender.com/api/cart/add', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams({ userId, productId: product.id, quantity: 1 }),
@@ -175,7 +175,7 @@ const Home = () => {
 
   const removeFromCart = async (productId) => {
     try {
-      const response = await fetch('http://localhost:8080/api/cart/remove', {
+      const response = await fetch('https://trial-for-backend.onrender.com/api/cart/remove', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ userId, productId }),
@@ -189,7 +189,7 @@ const Home = () => {
 
   const updateCartItem = async (item) => {
     try {
-      const response = await fetch('http://localhost:8080/api/cart/update', {
+      const response = await fetch('https://trial-for-backend.onrender.com/api/cart/update', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
@@ -227,7 +227,7 @@ const Home = () => {
         total: calculateTotal(),
         ...checkoutInfo,
       };
-      const response = await fetch('http://localhost:8080/api/orders', {
+      const response = await fetch('https://trial-for-backend.onrender.com/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData),
@@ -494,5 +494,6 @@ const Home = () => {
 };
 
 export default Home;
+
 
 

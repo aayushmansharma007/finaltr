@@ -5,7 +5,7 @@ const OrdersDashboard = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/orders')
+    fetch('https://trial-for-backend.onrender.com/api/orders')
       .then((response) => response.json())
       .then((data) => setOrders(data))
       .catch((error) => console.error('Error fetching orders:', error));

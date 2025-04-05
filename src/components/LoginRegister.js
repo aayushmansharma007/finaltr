@@ -43,7 +43,7 @@ const LoginRegister = ({ isLogin = true }) => {
         }
 
         // Regular user login
-        const response = await axios.post('http://localhost:8080/api/users/login', {
+        const response = await axios.post('https://trial-for-backend.onrender.com/api/users/login', {
           username,
           password
         });
@@ -61,7 +61,7 @@ const LoginRegister = ({ isLogin = true }) => {
           return;
         }
 
-        const response = await axios.post('http://localhost:8080/api/users/register', {
+        const response = await axios.post('https://trial-for-backend.onrender.com/api/users/register', {
           username,
           password,
           firstName,
