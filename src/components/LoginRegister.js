@@ -34,28 +34,27 @@ const LoginRegister = ({ isLogin = true }) => {
       if (isLoginMode) {
         // Check for admin credentials
         if (username === 'aayush' && password === 'ayush') {
-          // Set admin token and flag
-          localStorage.setItem('token', 'admin-token'); // You should use a proper JWT token in production
+          localStorage.setItem('token', 'admin-token');
           localStorage.setItem('isAdmin', 'true');
           setResponseMessage('Admin login successful!');
           navigate('/home');
           return;
         }
 
-        // Regular user login
+        // Regular user login - Changed to use email instead of username
         const response = await axios.post('https://trial-for-backend.onrender.com/api/users/login', {
-          username,
+          email: username, // Using username field as email
           password
         });
 
         if (response.data.token) {
           localStorage.setItem('token', response.data.token);
-          localStorage.setItem('isAdmin', 'false'); // Ensure regular users don't get admin access
+          localStorage.setItem('isAdmin', 'false');
           setResponseMessage('Login successful!');
           navigate('/home');
         }
       } else {
-        // Registration - prevent creating new admin accounts
+        // Registration
         if (username === 'aayush') {
           setResponseMessage('Username not available');
           return;
@@ -63,9 +62,9 @@ const LoginRegister = ({ isLogin = true }) => {
 
         const response = await axios.post('https://trial-for-backend.onrender.com/api/users/register', {
           username,
+          email,
           password,
           firstName,
-          email,
           phone
         });
 
@@ -152,12 +151,12 @@ const LoginRegister = ({ isLogin = true }) => {
             </>
           )}
           <div className="form-group">
-            <label>Username</label>
+            <label>{isLoginMode ? 'Email' : 'Username'}</label>
             <input
-              type="text"
+              type={isLoginMode ? 'email' : 'text'}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="username"
+              placeholder={isLoginMode ? 'email@example.com' : 'username'}
               required
             />
           </div>
