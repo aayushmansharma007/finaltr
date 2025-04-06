@@ -29,6 +29,22 @@ const Home = () => {
 
   const userId = 1; // Hardcoded for demo
 
+  const validateProduct = (product) => {
+    if (!product.name.trim()) {
+      throw new Error('Product name is required');
+    }
+    if (!product.price || isNaN(product.price) || product.price <= 0) {
+      throw new Error('Valid price is required');
+    }
+    if (!product.description.trim()) {
+      throw new Error('Product description is required');
+    }
+    if (!product.category) {
+      throw new Error('Product category is required');
+    }
+    return true;
+  };
+
   useEffect(() => {
     fetch('https://trial-for-backend.onrender.com/api/products')
       .then((response) => response.json())
@@ -114,16 +130,10 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
     const product = editProduct || newProduct;
-
-    formData.append('name', product.name);
-    formData.append('price', product.price);
-    formData.append('description', product.description);
-    formData.append('stock', product.stock);
-    formData.append('category', product.category);
     
     try {
+      validateProduct(product);
       let imageUrl = product.imageUrl;
       
       // Only upload image if there's a file selected
@@ -143,15 +153,20 @@ const Home = () => {
         imageUrl = await imageResponse.text();
       }
 
+      // Prepare the product data
+      const productData = {
+        name: product.name,
+        price: parseFloat(product.price), // Ensure price is a number
+        description: product.description,
+        stock: Boolean(product.stock), // Ensure stock is a boolean
+        category: product.category,
+        imageUrl: imageUrl || null // Ensure imageUrl is null if not provided
+      };
+
       const url = editProduct
         ? `https://trial-for-backend.onrender.com/api/products/${editProduct.id}`
         : 'https://trial-for-backend.onrender.com/api/products';
       
-      const productData = {
-        ...product,
-        imageUrl: imageUrl
-      };
-
       const response = await fetch(url, {
         method: editProduct ? 'PUT' : 'POST',
         headers: {
@@ -161,7 +176,8 @@ const Home = () => {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
       }
 
       const savedProduct = await response.json();
@@ -175,6 +191,7 @@ const Home = () => {
         setProducts(prev => [...prev, savedProduct]);
       }
       
+      // Reset form
       setNewProduct({
         name: '',
         price: '',
@@ -183,10 +200,11 @@ const Home = () => {
         stock: true,
         category: 'ACHAAR'
       });
+      setImageUrl(''); // Reset image URL
       setShowForm(false);
     } catch (error) {
       console.error('Error saving product:', error);
-      alert('Failed to save product. Please try again.');
+      alert(error.message || 'Failed to save product. Please try again.');
     }
   };
 
@@ -562,6 +580,8 @@ const Home = () => {
 };
 
 export default Home;
+
+
 
 
 
