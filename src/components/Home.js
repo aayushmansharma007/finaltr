@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import config from '../config';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -30,13 +29,14 @@ const Home = () => {
   const userId = 1; // Hardcoded for demo
 
   useEffect(() => {
-    fetch(`${config.API_BASE_URL}/api/products`)
+    fetch('https://trial-for-backend.onrender.com/api/products')
       .then((response) => response.json())
       .then((data) => {
+        // Transform the data to ensure imageUrl is complete
         const productsWithFullUrls = data.map(product => ({
           ...product,
           imageUrl: product.imageUrl ? 
-            `${config.API_BASE_URL}/${product.imageUrl.replace(/^\//, '')}` : 
+            `https://trial-for-backend.onrender.com/${product.imageUrl.replace(/^\//, '')}` : 
             null
         }));
         setProducts(productsWithFullUrls);
@@ -113,18 +113,42 @@ const Home = () => {
     formData.append('stock', product.stock);
     formData.append('category', product.category);
     
-    if (product.image) {
-      formData.append('image', product.image);
-    }
-
     try {
+      // First upload the image if it exists
+      let imageUrl = null;
+      if (product.image) {
+        const imageFormData = new FormData();
+        imageFormData.append('file', product.image);
+        
+        const imageResponse = await fetch('https://trial-for-backend.onrender.com/api/images/upload', {
+          method: 'POST',
+          body: imageFormData,
+          // Don't set Content-Type header when sending FormData
+        });
+        
+        if (!imageResponse.ok) {
+          throw new Error('Failed to upload image');
+        }
+        
+        imageUrl = await imageResponse.text();
+      }
+
+      // Then create/update the product with the image URL
       const url = editProduct
         ? `https://trial-for-backend.onrender.com/api/products/${editProduct.id}`
         : 'https://trial-for-backend.onrender.com/api/products';
       
+      const productData = {
+        ...product,
+        imageUrl: imageUrl || product.imageUrl
+      };
+
       const response = await fetch(url, {
         method: editProduct ? 'PUT' : 'POST',
-        body: formData, // Don't set Content-Type header when sending FormData
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(productData),
       });
 
       if (!response.ok) {
@@ -132,21 +156,14 @@ const Home = () => {
       }
 
       const savedProduct = await response.json();
-      // Ensure the imageUrl is complete
-      const productWithFullUrl = {
-        ...savedProduct,
-        imageUrl: savedProduct.imageUrl ? 
-          `https://trial-for-backend.onrender.com/${savedProduct.imageUrl.replace(/^\//, '')}` : 
-          null
-      };
       
       if (editProduct) {
         setProducts(prev =>
-          prev.map(p => (p.id === productWithFullUrl.id ? productWithFullUrl : p))
+          prev.map(p => (p.id === savedProduct.id ? savedProduct : p))
         );
         setEditProduct(null);
       } else {
-        setProducts(prev => [...prev, productWithFullUrl]);
+        setProducts(prev => [...prev, savedProduct]);
       }
       
       setNewProduct({
@@ -508,7 +525,6 @@ const Home = () => {
 };
 
 export default Home;
-
 
 
 
