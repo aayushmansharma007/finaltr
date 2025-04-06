@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import config from '../config';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -29,14 +30,13 @@ const Home = () => {
   const userId = 1; // Hardcoded for demo
 
   useEffect(() => {
-    fetch('https://trial-for-backend.onrender.com/api/products')
+    fetch(`${config.API_BASE_URL}/api/products`)
       .then((response) => response.json())
       .then((data) => {
-        // Transform the data to ensure imageUrl is complete
         const productsWithFullUrls = data.map(product => ({
           ...product,
           imageUrl: product.imageUrl ? 
-            `https://trial-for-backend.onrender.com/${product.imageUrl.replace(/^\//, '')}` : 
+            `${config.API_BASE_URL}/${product.imageUrl.replace(/^\//, '')}` : 
             null
         }));
         setProducts(productsWithFullUrls);
@@ -508,6 +508,8 @@ const Home = () => {
 };
 
 export default Home;
+
+
 
 
 

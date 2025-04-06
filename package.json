@@ -2,6 +2,7 @@
   "name": "my-food-website",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://trial-for-backend.onrender.com",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -39,3 +40,4 @@
     ]
   }
 }
+
