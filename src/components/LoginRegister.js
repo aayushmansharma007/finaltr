@@ -41,9 +41,9 @@ const LoginRegister = ({ isLogin = true }) => {
           return;
         }
 
-        // Regular user login
+        // Regular user login - Changed to use username
         const response = await axios.post('https://trial-for-backend.onrender.com/api/users/login', {
-          email: username,
+          username: username, // Changed from email to username
           password
         });
 
@@ -70,7 +70,6 @@ const LoginRegister = ({ isLogin = true }) => {
 
         if (response.data) {
           setResponseMessage('Registration successful! Please login.');
-          // Show success message and clear form
           setTimeout(() => {
             setIsLoginMode(true);
             setUsername('');
@@ -78,7 +77,7 @@ const LoginRegister = ({ isLogin = true }) => {
             setFirstName('');
             setEmail('');
             setPhone('');
-          }, 3000); // Increased timeout to 3 seconds to ensure message is visible
+          }, 3000);
         }
       }
     } catch (error) {
@@ -163,12 +162,12 @@ const LoginRegister = ({ isLogin = true }) => {
             </>
           )}
           <div className="form-group">
-            <label>{isLoginMode ? 'Email' : 'Username'}</label>
+            <label>{isLoginMode ? 'Username' : 'Username'}</label>
             <input
-              type={isLoginMode ? 'email' : 'text'}
+              type="text"  // Changed from 'email' to 'text'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder={isLoginMode ? 'email@example.com' : 'username'}
+              placeholder={isLoginMode ? 'Enter username' : 'Choose username'}
               required
             />
           </div>
