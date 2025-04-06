@@ -63,7 +63,19 @@ const Home = () => {
 
     fetch(`https://trial-for-backend.onrender.com/api/cart/${userId}`)
       .then((response) => response.json())
-      .then((data) => setCart(data.items || []))
+      .then((data) => {
+        // Transform cart items to include full image URLs
+        const cartItemsWithFullUrls = data.items.map(item => ({
+          ...item,
+          product: {
+            ...item.product,
+            imageUrl: item.product.imageUrl ? 
+              `https://trial-for-backend.onrender.com/${item.product.imageUrl.replace(/^\//, '')}` : 
+              null
+          }
+        }));
+        setCart(cartItemsWithFullUrls);
+      })
       .catch((error) => console.error('Error fetching cart:', error));
   }, []);
 
@@ -521,7 +533,19 @@ const Home = () => {
             <div className="cart-items">
               {cart.map((item) => (
                 <div key={item.id} className="cart-item">
-                  <img src={item.product.imageUrl} alt={item.product.name} className="cart-item-img" />
+                  {item.product.imageUrl ? (
+                    <img 
+                      src={item.product.imageUrl} 
+                      alt={item.product.name} 
+                      className="cart-item-img"
+                      onError={(e) => {
+                        e.target.src = 'https://via.placeholder.com/150?text=No+Image';
+                        e.target.onerror = null;
+                      }}
+                    />
+                  ) : (
+                    <div className="cart-item-img placeholder">No Image</div>
+                  )}
                   <div className="cart-item-details">
                     <h3>{item.product.name}</h3>
                     <p>Price: ${item.product.price}</p>
@@ -581,6 +605,8 @@ const Home = () => {
 };
 
 export default Home;
+
+
 
 
 
