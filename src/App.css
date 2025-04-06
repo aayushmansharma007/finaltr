@@ -288,3 +288,52 @@ h1 {
   0% { background-position: 0 0; }
   100% { background-position: 100px 100px; }
 }
+
+/* Add credit section */
+.credit {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.credit:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.creator-name {
+  color: #00ffcc;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.creator-name:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+.credit p {
+  margin: 0;
+}
+
+/* Add responsive adjustments */
+@media screen and (max-width: 480px) {
+  .credit {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    bottom: 10px;
+  }
+}
