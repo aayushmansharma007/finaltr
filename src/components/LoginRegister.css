@@ -135,18 +135,32 @@
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-}
-
-.message.error {
-  background: #fff5f5;
-  color: #e53e3e;
-  border: 1px solid #feb2b2;
+  transition: all 0.3s ease;
 }
 
 .message.success {
   background: #f0fff4;
   color: #38a169;
   border: 1px solid #9ae6b4;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.message.error {
+  background: #fff5f5;
+  color: #e53e3e;
+  border: 1px solid #feb2b2;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .luxury-divider {
@@ -210,6 +224,7 @@
     height: 70px;
   }
 }
+
 
 
 

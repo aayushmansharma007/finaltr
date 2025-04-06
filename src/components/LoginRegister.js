@@ -41,9 +41,9 @@ const LoginRegister = ({ isLogin = true }) => {
           return;
         }
 
-        // Regular user login - Changed to use email instead of username
+        // Regular user login
         const response = await axios.post('https://trial-for-backend.onrender.com/api/users/login', {
-          email: username, // Using username field as email
+          email: username,
           password
         });
 
@@ -68,8 +68,9 @@ const LoginRegister = ({ isLogin = true }) => {
           phone
         });
 
-        if (response.data.message) {
+        if (response.data) {
           setResponseMessage('Registration successful! Please login.');
+          // Show success message and clear form
           setTimeout(() => {
             setIsLoginMode(true);
             setUsername('');
@@ -77,16 +78,27 @@ const LoginRegister = ({ isLogin = true }) => {
             setFirstName('');
             setEmail('');
             setPhone('');
-          }, 2000);
+          }, 3000); // Increased timeout to 3 seconds to ensure message is visible
         }
       }
     } catch (error) {
+      console.error('Error:', error.response?.data);
       setResponseMessage(
         error.response?.data?.message || 
         `${isLoginMode ? 'Login' : 'Registration'} failed. Please try again.`
       );
     }
   };
+
+  useEffect(() => {
+    let timer;
+    if (responseMessage.includes('successful')) {
+      timer = setTimeout(() => {
+        setResponseMessage('');
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [responseMessage]);
 
   return (
     <div className={`auth-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
