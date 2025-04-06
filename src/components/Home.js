@@ -25,6 +25,7 @@ const Home = () => {
   const [orderCompleted, setOrderCompleted] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [imageUrl, setImageUrl] = useState('');
 
   const userId = 1; // Hardcoded for demo
 
@@ -57,6 +58,15 @@ const Home = () => {
       setEditProduct((prev) => ({ ...prev, [name]: updatedValue }));
     } else {
       setNewProduct((prev) => ({ ...prev, [name]: updatedValue }));
+    }
+  };
+
+  const handleImageUrlSubmit = (e) => {
+    e.preventDefault();
+    if (editProduct) {
+      setEditProduct(prev => ({ ...prev, imageUrl, image: null }));
+    } else {
+      setNewProduct(prev => ({ ...prev, imageUrl, image: null }));
     }
   };
 
@@ -114,8 +124,9 @@ const Home = () => {
     formData.append('category', product.category);
     
     try {
-      // First upload the image if it exists
-      let imageUrl = null;
+      let imageUrl = product.imageUrl;
+      
+      // Only upload image if there's a file selected
       if (product.image) {
         const imageFormData = new FormData();
         imageFormData.append('file', product.image);
@@ -123,7 +134,6 @@ const Home = () => {
         const imageResponse = await fetch('https://trial-for-backend.onrender.com/api/images/upload', {
           method: 'POST',
           body: imageFormData,
-          // Don't set Content-Type header when sending FormData
         });
         
         if (!imageResponse.ok) {
@@ -133,14 +143,13 @@ const Home = () => {
         imageUrl = await imageResponse.text();
       }
 
-      // Then create/update the product with the image URL
       const url = editProduct
         ? `https://trial-for-backend.onrender.com/api/products/${editProduct.id}`
         : 'https://trial-for-backend.onrender.com/api/products';
       
       const productData = {
         ...product,
-        imageUrl: imageUrl || product.imageUrl
+        imageUrl: imageUrl
       };
 
       const response = await fetch(url, {
@@ -359,20 +368,48 @@ const Home = () => {
                   ×
                 </button>
               </div>
-            ) : editProduct?.imageUrl ? (
+            ) : editProduct?.imageUrl || newProduct.imageUrl ? (
               <div className="image-preview">
-                <img src={editProduct.imageUrl} alt="Current" />
+                <img src={editProduct?.imageUrl || newProduct.imageUrl} alt="Current" />
+                <button
+                  type="button"
+                  className="remove-image"
+                  onClick={() => {
+                    if (editProduct) {
+                      setEditProduct(prev => ({ ...prev, imageUrl: '' }));
+                    } else {
+                      setNewProduct(prev => ({ ...prev, imageUrl: '' }));
+                    }
+                  }}
+                >
+                  ×
+                </button>
               </div>
             ) : (
               <div className="upload-prompt">
-                <p>Drag and drop image here</p>
-                <span>or</span>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileSelect}
-                  style={{ marginTop: '10px' }}
-                />
+                <p>Upload image using one of these methods:</p>
+                <div className="upload-methods">
+                  <div className="url-upload">
+                    <form onSubmit={handleImageUrlSubmit}>
+                      <input
+                        type="url"
+                        placeholder="Enter image URL"
+                        value={imageUrl}
+                        onChange={(e) => setImageUrl(e.target.value)}
+                      />
+                      <button type="submit">Add Image URL</button>
+                    </form>
+                  </div>
+                  <div className="separator">OR</div>
+                  <div className="file-upload">
+                    <p>Drag and drop image here</p>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileSelect}
+                    />
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -525,6 +562,9 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
 
 
 
