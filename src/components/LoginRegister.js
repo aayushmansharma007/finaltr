@@ -37,13 +37,13 @@ const LoginRegister = ({ isLogin = true }) => {
           localStorage.setItem('token', 'admin-token');
           localStorage.setItem('isAdmin', 'true');
           setResponseMessage('Admin login successful!');
-          navigate('/home');
+          navigate('/home', { replace: true });
           return;
         }
 
-        // Regular user login - Changed to use username
+        // Regular user login
         const response = await axios.post('https://trial-for-backend.onrender.com/api/users/login', {
-          username: username, // Changed from email to username
+          username: username,
           password
         });
 
@@ -51,7 +51,10 @@ const LoginRegister = ({ isLogin = true }) => {
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('isAdmin', 'false');
           setResponseMessage('Login successful!');
-          navigate('/home');
+          // Force a reload to ensure token is properly set
+          window.location.href = '/home';
+        } else {
+          setResponseMessage('Invalid login response. Please try again.');
         }
       } else {
         // Registration
