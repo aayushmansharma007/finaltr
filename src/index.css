@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+:root {
+  --primary-color: #e94560;
+  --secondary-color: #0f3460;
+  --accent-color: #ff9e00;
+  --text-color: #ffffff;
+  --background-dark: #1a1a2e;
+  --background-light: #16213e;
+}
