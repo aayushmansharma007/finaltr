@@ -32,8 +32,15 @@ const Home = () => {
     fetch('https://trial-for-backend.onrender.com/api/products')
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data);
-        setFilteredProducts(data); // Initialize filtered products with all products
+        // Transform the data to ensure imageUrl is complete
+        const productsWithFullUrls = data.map(product => ({
+          ...product,
+          imageUrl: product.imageUrl ? 
+            `https://trial-for-backend.onrender.com/${product.imageUrl.replace(/^\//, '')}` : 
+            null
+        }));
+        setProducts(productsWithFullUrls);
+        setFilteredProducts(productsWithFullUrls);
       })
       .catch((error) => console.error('Error fetching products:', error));
 
@@ -125,14 +132,21 @@ const Home = () => {
       }
 
       const savedProduct = await response.json();
+      // Ensure the imageUrl is complete
+      const productWithFullUrl = {
+        ...savedProduct,
+        imageUrl: savedProduct.imageUrl ? 
+          `https://trial-for-backend.onrender.com/${savedProduct.imageUrl.replace(/^\//, '')}` : 
+          null
+      };
       
       if (editProduct) {
         setProducts(prev =>
-          prev.map(p => (p.id === savedProduct.id ? savedProduct : p))
+          prev.map(p => (p.id === productWithFullUrl.id ? productWithFullUrl : p))
         );
         setEditProduct(null);
       } else {
-        setProducts(prev => [...prev, savedProduct]);
+        setProducts(prev => [...prev, productWithFullUrl]);
       }
       
       setNewProduct({
@@ -494,6 +508,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 
