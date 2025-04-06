@@ -153,15 +153,16 @@ const Home = () => {
         imageUrl = await imageResponse.text();
       }
 
-      // Prepare the product data
-      const productData = {
-        name: product.name,
-        price: parseFloat(product.price), // Ensure price is a number
-        description: product.description,
-        stock: Boolean(product.stock), // Ensure stock is a boolean
-        category: product.category,
-        imageUrl: imageUrl || null // Ensure imageUrl is null if not provided
-      };
+      // Create URLSearchParams for form data
+      const formData = new URLSearchParams();
+      formData.append('name', product.name);
+      formData.append('price', product.price.toString());
+      formData.append('description', product.description);
+      formData.append('stock', product.stock.toString());
+      formData.append('category', product.category);
+      if (imageUrl) {
+        formData.append('imageUrl', imageUrl);
+      }
 
       const url = editProduct
         ? `https://trial-for-backend.onrender.com/api/products/${editProduct.id}`
@@ -170,9 +171,9 @@ const Home = () => {
       const response = await fetch(url, {
         method: editProduct ? 'PUT' : 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(productData),
+        body: formData.toString(),
       });
 
       if (!response.ok) {
@@ -580,6 +581,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 
