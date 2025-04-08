@@ -72,15 +72,15 @@ function App() {
           <div className="features animate__animated animate__fadeInUp animate__delay-3s">
             <div className="feature animate__animated animate__bounceIn animate__delay-3s">
               <span role="img" aria-label="rocket" className="floating">🚀</span>
-              <p>Innovative Features</p>
+              <p>Innovative<br />Features</p>
             </div>
             <div className="feature animate__animated animate__bounceIn animate__delay-3s">
               <span role="img" aria-label="lightbulb" className="floating">💡</span>
-              <p>Creative Solutions</p>
+              <p>Creative<br />Solutions</p>
             </div>
             <div className="feature animate__animated animate__bounceIn animate__delay-3s">
               <span role="img" aria-label="target" className="floating">🎯</span>
-              <p>Targeted Results</p>
+              <p>Targeted<br />Results</p>
             </div>
           </div>
 
@@ -94,6 +94,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
