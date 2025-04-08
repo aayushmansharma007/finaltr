@@ -394,12 +394,34 @@ h1 {
 /* Introduction Section Styles */
 .introduction-section {
   max-width: 900px;
-  margin: 3rem auto 2rem; /* Adjusted margin */
+  margin: 3rem auto 2rem;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  /* Add these properties to prevent text selection and copying */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* Prevents iOS context menu */
+  pointer-events: none; /* Prevents text selection on some browsers */
+}
+
+/* Make sure all child elements are also non-selectable */
+.introduction-section * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Re-enable pointer events for interactive elements if needed */
+.introduction-section .course-item {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .intro-heading {
