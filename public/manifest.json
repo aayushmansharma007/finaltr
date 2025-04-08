@@ -1,6 +1,7 @@
 {
-  "short_name": "Lanos IT",
-  "name": "Lanos IT Solutions",
+  "short_name": "Lanos Technology",
+  "name": "Lanos Technology - Software Development Training",
+  "description": "Best software development training institute in Sagar, MP offering courses in Java, Python, and MERN Stack development",
   "icons": [
     {
       "src": "favicon.ico",
@@ -24,8 +25,10 @@
   "display": "standalone",
   "theme_color": "#00ffcc",
   "background_color": "#1a1a1a",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "categories": ["education", "technology", "programming"]
 }
+
 
 
 

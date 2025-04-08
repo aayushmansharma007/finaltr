@@ -69,25 +69,41 @@ function App() {
 
           {/* Introduction section after timer */}
           <div className="introduction-section animate__animated animate__fadeIn animate__delay-2s">
-            <h2 className="intro-heading">Your Gateway to a Brighter Tech Future!</h2>
+            <h2 className="intro-heading">Welcome to Lanos Technology - Sagar's Premier Software Development Institute</h2>
             
             <div className="intro-text">
-              <p>Launching on 1st May, Lanos Technology is here to revolutionize the way you learn and grow in the world of software development. We offer affordable, industry-relevant online courses designed to empower beginners and aspiring developers to land their dream tech roles.</p>
+              <p>Located in Makroniya, Sagar (MP), Lanos Technology is your gateway to a successful career in software development. We offer comprehensive, industry-aligned courses designed to transform beginners into professional developers.</p>
             </div>
 
             <div className="courses-section">
-              <h3>🎯 Our Courses Include:</h3>
+              <h3>🎯 Our Professional Courses:</h3>
               <div className="course-list">
-                <div className="course-item">Full Stack Java Developer</div>
-                <div className="course-item">Full Stack Python Developer</div>
-                <div className="course-item">MERN Stack Developer</div>
+                <div className="course-item">
+                  <h4>Full Stack Java Developer</h4>
+                  <p>Master Java, Spring Boot, and enterprise development</p>
+                </div>
+                <div className="course-item">
+                  <h4>Full Stack Python Developer</h4>
+                  <p>Learn Python, Django, and data science essentials</p>
+                </div>
+                <div className="course-item">
+                  <h4>MERN Stack Developer</h4>
+                  <p>Build modern web apps with MongoDB, Express, React, and Node.js</p>
+                </div>
               </div>
             </div>
 
+            <div className="location-info">
+              <h3>📍 Visit Us</h3>
+              <p>Lanos Technology</p>
+              <p>Makroniya, Sagar</p>
+              <p>Madhya Pradesh, India</p>
+            </div>
+
             <div className="intro-footer">
-              <p>Our curriculum is crafted by experts to ensure hands-on experience, real-world projects, and career-ready skills. Whether you're just starting out or switching careers, Lanos Technology is your partner in success.</p>
-              <p className="highlight-text">Join us on this journey and unlock your potential in the tech world — without burning a hole in your pocket.</p>
-              <p className="launch-highlight">🗓️ Mark your calendar: We're going live on 1st May!</p>
+              <p>Our expert instructors provide hands-on training with real-world projects, ensuring you're job-ready upon course completion. Whether you're a student, career switcher, or looking to upgrade your skills, Lanos Technology is your trusted partner in learning.</p>
+              <p className="highlight-text">Join Sagar's most trusted software development training institute!</p>
+              <p className="launch-highlight">🗓️ New Batch Starting from 1st May 2025 - Limited Seats Available!</p>
             </div>
           </div>
 
@@ -116,6 +132,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
