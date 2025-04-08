@@ -1,6 +1,6 @@
 {
-  "short_name": "Launch Timer",
-  "name": "Website Launch Countdown",
+  "short_name": "Lanos IT",
+  "name": "Lanos IT Solutions",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,10 +22,13 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#1a1a1a",
+  "theme_color": "#00ffcc",
   "background_color": "#1a1a1a",
   "orientation": "portrait"
 }
+
+
+
 
 
 

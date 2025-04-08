@@ -1,0 +1,61 @@
+.logo-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-full {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.logo-small {
+  display: none;
+  height: 40px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    position: relative;
+    text-align: center;
+    left: 0;
+    top: 0;
+    margin-bottom: 20px;
+  }
+
+  .logo-full {
+    display: none;
+  }
+
+  .logo-small {
+    display: inline-block;
+    margin: 0 auto;
+  }
+}
+
+.logo-animation {
+  animation: logoFloat 6s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(2deg); 
+  }
+}
