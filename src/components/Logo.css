@@ -33,8 +33,8 @@
     position: relative;
     text-align: center;
     left: 0;
-    top: 0;
-    margin-bottom: 20px;
+    top: 10px;
+    margin-bottom: 10px;
   }
 
   .logo-full {
@@ -44,6 +44,16 @@
   .logo-small {
     display: inline-block;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-container {
+    top: 5px;
+  }
+
+  .logo-small {
+    height: 30px;
   }
 }
 

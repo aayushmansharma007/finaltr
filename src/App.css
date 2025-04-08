@@ -15,6 +15,8 @@
   justify-content: center;
   align-items: center;
   padding: var(--container-padding);
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
@@ -28,10 +30,16 @@
   align-items: center;
 }
 
+.main-content {
+  width: 100%;
+  margin-top: 80px; /* Space for logo */
+}
+
 h1 {
   font-size: var(--heading-size);
   margin-bottom: clamp(1rem, 3vw, 2rem);
   word-wrap: break-word;
+  padding: 0 10px;
 }
 
 /* Timer styles */
@@ -48,10 +56,14 @@ h1 {
   min-width: clamp(60px, 20vw, 80px);
   max-width: 120px;
   padding: clamp(0.5rem, 2vw, 1rem);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
 }
 
 .time-block span {
   font-size: var(--timer-size);
+  font-weight: bold;
 }
 
 .time-block p {
@@ -70,56 +82,70 @@ h1 {
 
 .feature {
   padding: clamp(1rem, 3vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
 }
 
-.feature span {
-  font-size: clamp(2rem, 6vw, 3rem);
-}
-
-.feature p {
-  font-size: var(--text-size);
-}
-
-/* Message and launch date */
-.message, .launch-date {
-  font-size: var(--text-size);
-  margin: clamp(1rem, 3vw, 2rem) auto;
-  max-width: 600px;
-  padding: clamp(0.5rem, 2vw, 1rem);
-  text-align: center;
-  width: 100%;
-  display: block;
-}
-
-/* Media Queries */
+/* Mobile Optimizations */
 @media screen and (max-width: 768px) {
-  .timer {
-    gap: 1rem;
+  .container {
+    padding: 1rem;
   }
 
-  .time-block {
-    padding: 0.8rem;
+  .main-content {
+    margin-top: 40px;
   }
 
-  .features {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
-
-@media screen and (max-width: 480px) {
   .timer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 10px;
+    padding: 0 10px;
   }
 
   .time-block {
-    min-width: auto;
+    min-width: unset;
     width: 100%;
   }
 
   .features {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .feature {
+    margin: 0 10px;
+  }
+
+  .message, .launch-date {
+    padding: 10px;
+    margin: 1rem 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --heading-size: clamp(1.2rem, 4vw, 1.8rem);
+    --timer-size: clamp(1.5rem, 3.5vw, 2rem);
+    --text-size: clamp(0.8rem, 1.8vw, 1rem);
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .main-content {
+    margin-top: 30px;
+  }
+
+  .time-block {
+    padding: 8px;
+  }
+
+  .feature span {
+    font-size: 2rem;
   }
 }
 
