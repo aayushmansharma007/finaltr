@@ -42,7 +42,8 @@ function App() {
           <h1 className={`animate__animated ${isVisible ? 'animate__fadeInDown' : ''}`}>
             Lanos IT Solutions - Coming Soon!
           </h1>
-        
+
+          {/* Timer moved up */}
           <div className="timer animate__animated animate__fadeIn animate__delay-1s">
             <div className="time-block animate__animated animate__flipInX animate__delay-1s">
               <span>{timeLeft.days.toString().padStart(2, '0')}</span>
@@ -62,12 +63,33 @@ function App() {
             </div>
           </div>
 
-          <p className="message animate__animated animate__fadeInUp animate__delay-2s">
-            We're working hard to bring you something extraordinary.
-          </p>
           <p className="launch-date animate__animated animate__fadeInUp animate__delay-2s">
             Launch Date: May 1st, 2025
           </p>
+
+          {/* Introduction section after timer */}
+          <div className="introduction-section animate__animated animate__fadeIn animate__delay-2s">
+            <h2 className="intro-heading">Your Gateway to a Brighter Tech Future!</h2>
+            
+            <div className="intro-text">
+              <p>Launching on 1st May, Lanos Technology is here to revolutionize the way you learn and grow in the world of software development. We offer affordable, industry-relevant online courses designed to empower beginners and aspiring developers to land their dream tech roles.</p>
+            </div>
+
+            <div className="courses-section">
+              <h3>🎯 Our Courses Include:</h3>
+              <div className="course-list">
+                <div className="course-item">Full Stack Java Developer</div>
+                <div className="course-item">Full Stack Python Developer</div>
+                <div className="course-item">MERN Stack Developer</div>
+              </div>
+            </div>
+
+            <div className="intro-footer">
+              <p>Our curriculum is crafted by experts to ensure hands-on experience, real-world projects, and career-ready skills. Whether you're just starting out or switching careers, Lanos Technology is your partner in success.</p>
+              <p className="highlight-text">Join us on this journey and unlock your potential in the tech world — without burning a hole in your pocket.</p>
+              <p className="launch-highlight">🗓️ Mark your calendar: We're going live on 1st May!</p>
+            </div>
+          </div>
 
           <div className="features animate__animated animate__fadeInUp animate__delay-3s">
             <div className="feature animate__animated animate__bounceIn animate__delay-3s">
@@ -94,6 +116,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 

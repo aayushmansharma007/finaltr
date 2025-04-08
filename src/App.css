@@ -46,9 +46,8 @@ h1 {
 .timer {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(0.5rem, 2vw, 1.5rem);
-  margin: clamp(1rem, 3vw, 2rem) 0;
+  gap: 1.5rem;
+  margin: 2rem 0 1rem 0; /* Adjusted margin */
 }
 
 .time-block {
@@ -209,7 +208,7 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem 0; /* Adjusted margin */
 }
 
 .time-block {
@@ -265,6 +264,7 @@ h1 {
   transition: all 0.3s ease;
   padding: 10px;
   border-radius: 8px;
+  margin-bottom: 2rem; /* Added margin to separate from introduction */
 }
 
 .launch-date:hover {
@@ -388,5 +388,117 @@ h1 {
     font-size: 0.8rem;
     padding: 6px 12px;
     bottom: 10px;
+  }
+}
+
+/* Introduction Section Styles */
+.introduction-section {
+  max-width: 900px;
+  margin: 3rem auto 2rem; /* Adjusted margin */
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.intro-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #00ffcc;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.courses-section {
+  margin: 2rem 0;
+}
+
+.courses-section h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: #00ffcc;
+  margin-bottom: 1rem;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.course-item {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.course-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.intro-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.intro-footer p {
+  margin: 1rem 0;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.highlight-text {
+  color: #00ffcc;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.launch-highlight {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: #fff;
+  background: linear-gradient(45deg, rgba(0, 255, 204, 0.2), rgba(0, 255, 204, 0.1));
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+/* Mobile Optimizations */
+@media screen and (max-width: 768px) {
+  .introduction-section {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .course-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .introduction-section {
+    padding: 1rem;
+    margin: 0.5rem auto;
+  }
+
+  .intro-footer {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .course-item:hover {
+    transform: none;
   }
 }
