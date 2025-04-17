@@ -1,0 +1,69 @@
+/* Keyframes Definitions */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(98, 0, 234, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(98, 0, 234, 0);
+  }
+}
+
+/* Utility Classes */
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.6s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease forwards;
+}
+
+.animate-float {
+  animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: ripple 1.5s infinite;
+}

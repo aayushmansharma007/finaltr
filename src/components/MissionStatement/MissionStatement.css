@@ -1,0 +1,51 @@
+.mission-statement {
+  padding: 80px 20px;
+  background: linear-gradient(to right, #6200EA, #B819D2);
+  color: white;
+  margin: 40px 0;
+  border-radius: 12px;
+}
+
+.mission-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mission-content p,
+.mission-text {
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+               0 0 10px rgba(255, 255, 255, 0.3),
+               0 0 15px rgba(255, 255, 255, 0.2);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                 0 0 10px rgba(255, 255, 255, 0.3),
+                 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  to {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6),
+                 0 0 13px rgba(255, 255, 255, 0.4),
+                 0 0 18px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-statement {
+    padding: 40px 20px;
+  }
+  
+  .mission-content h2 {
+    font-size: 2rem;
+  }
+  
+  .mission-content p {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,120 @@
+.service-tab {
+  padding: 40px;
+  background: var(--card-background);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+.service-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+  color: var(--text-primary);
+}
+
+.service-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.service-hero h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.service-body {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.service-item {
+  padding: 30px;
+  background: var(--background-secondary);
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-item h4 {
+  color: var(--text-primary);
+}
+
+.investor-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.highlights-list li {
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background: var(--background-secondary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.highlights-list li::before {
+  content: "✦";
+  color: var(--primary-color);
+}
+
+.download-deck {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.download-deck:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .service-tab {
+    padding: 20px;
+  }
+
+  .service-hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

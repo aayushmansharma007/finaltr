@@ -1,0 +1,31 @@
+.client-portal {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.portal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.action-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  background: #6200EA;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.action-btn:hover {
+  background: #5000c7;
+}

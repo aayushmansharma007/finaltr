@@ -1,0 +1,73 @@
+:root {
+  --primary-gradient: linear-gradient(45deg, #6200EA, #B819D2);
+  --primary-color: #6200EA;
+  --secondary-color: #B819D2;
+  --accent-color: #FF0080;
+  
+  /* Dark Theme Colors */
+  --background-primary: #1a1721;
+  --background-secondary: #241e2d;
+  --card-background: #2a2433;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b8b5c3;
+  --border-color: #362f42;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+.card,
+.container-dark {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+/* Text styles */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p, span, div {
+  color: var(--text-secondary);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Purple Overlay Effect */
+.purple-overlay {
+  position: relative;
+}
+
+.purple-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary-gradient);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+

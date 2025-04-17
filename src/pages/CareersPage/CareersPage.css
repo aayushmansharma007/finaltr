@@ -1,0 +1,60 @@
+.careers-page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.careers-hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to right, #6200EA, #B819D2);
+  color: white;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.careers-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .careers-hero {
+    padding: 60px 20px;
+  }
+
+  .careers-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .careers-page {
+    padding: 0 10px;
+  }
+}

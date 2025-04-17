@@ -1,0 +1,74 @@
+.main-nav {
+  background: rgba(26, 23, 33, 0.95); /* Slightly transparent dark purple */
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Add margin to create space between logo and nav links */
+.nav-container .logo-container {
+  margin-right: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin-left: auto; /* Push links to the right */
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+}
+
+/* Glowing effect for active link */
+.nav-links a.active {
+  color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(98, 0, 234, 0.3);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-container .logo-container {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
+

@@ -1,6 +1,6 @@
 {
   "short_name": "Lanos IT",
-  "name": "Lanos IT Solutions",
+  "name": "Lanos IT Solutions | Enterprise Technology Consulting",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,9 +22,8 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#00ffcc",
-  "background_color": "#1a1a1a",
-  "orientation": "portrait"
+  "theme_color": "#6200EA",
+  "background_color": "#FFFFFF"
 }
 
 
