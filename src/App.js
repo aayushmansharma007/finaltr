@@ -107,7 +107,7 @@ function App() {
           </div>
 
           <div className="credit animate__animated animate__fadeIn animate__delay-3s">
-            <p>Crafted with ❤️ by <span className="creator-name">Aayushman Testing</span></p>
+            <p>Crafted with ❤️ by <span className="creator-name">Aayushman Sharma</span></p>
           </div>
         </div>
       </div>
