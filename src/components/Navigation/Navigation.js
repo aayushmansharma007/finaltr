@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo';
 import './Navigation.css';
@@ -6,16 +6,16 @@ import './Navigation.css';
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    // Prevent body scroll when menu is open
+  // Memoize handlers to prevent unnecessary re-renders
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen(prev => !prev);
     document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
-  };
+  }, [isMenuOpen]);
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
     document.body.style.overflow = 'auto';
-  };
+  }, []);
 
   return (
     <nav className="main-nav">
@@ -45,5 +45,6 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default React.memo(Navigation);
+
 

@@ -12,6 +12,7 @@
   --text-secondary: #b8b5c3;
   --border-color: #362f42;
   --shadow-color: rgba(0, 0, 0, 0.3);
+  --transition-speed: 0.2s;
 }
 
 body {
@@ -70,5 +71,15 @@ a:hover {
   pointer-events: none;
 }
 
+/* Optimize transitions */
+.theme-transition {
+  transition: background-color var(--transition-speed) ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 
+/* Reduce paint operations */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 

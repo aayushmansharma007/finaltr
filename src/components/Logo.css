@@ -5,8 +5,6 @@
 
 .logo-link {
   display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .logo-full {
@@ -19,6 +17,11 @@
   display: none;
   height: 35px;
   width: auto;
+}
+
+/* Remove float animation for better performance */
+.logo-animation {
+  animation: none;
 }
 
 @media (max-width: 768px) {
