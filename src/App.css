@@ -1,0 +1,526 @@
+/* Base styles */
+:root {
+  --container-padding: clamp(1rem, 5vw, 2rem);
+  --heading-size: clamp(1.5rem, 5vw, 2.5rem);
+  --timer-size: clamp(1.8rem, 4vw, 2.5rem);
+  --text-size: clamp(0.9rem, 2vw, 1.2rem);
+}
+
+.App {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #1a1a1a, #2d2d2d, #1a1a1a, #2d2d2d);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--container-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  padding: var(--container-padding);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-content {
+  width: 100%;
+  margin-top: 80px; /* Space for logo */
+}
+
+h1 {
+  font-size: var(--heading-size);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  word-wrap: break-word;
+  padding: 0 10px;
+}
+
+/* Timer styles */
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0 1rem 0; /* Adjusted margin */
+}
+
+.time-block {
+  flex: 1;
+  min-width: clamp(60px, 20vw, 80px);
+  max-width: 120px;
+  padding: clamp(0.5rem, 2vw, 1rem);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.time-block span {
+  font-size: var(--timer-size);
+  font-weight: bold;
+}
+
+.time-block p {
+  font-size: var(--text-size);
+  margin-top: 0.5rem;
+}
+
+/* Features section base styles */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.feature {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease;
+}
+
+.feature span {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* Mobile Optimizations */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .main-content {
+    margin-top: 40px;
+  }
+
+  .timer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .time-block {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .feature {
+    margin: 0;
+    padding: 1.2rem;
+    max-width: 100%;
+  }
+
+  .feature span {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature p {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .message, .launch-date {
+    padding: 10px;
+    margin: 1rem 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --heading-size: clamp(1.2rem, 4vw, 1.8rem);
+    --timer-size: clamp(1.5rem, 3.5vw, 2rem);
+    --text-size: clamp(0.8rem, 1.8vw, 1rem);
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .main-content {
+    margin-top: 30px;
+  }
+
+  .time-block {
+    padding: 8px;
+  }
+
+  .feature span {
+    font-size: 2rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .time-block:hover,
+  .feature:hover,
+  .message:hover,
+  .launch-date:hover {
+    transform: none;
+  }
+}
+
+/* Ensure animations work well on mobile */
+@media (prefers-reduced-motion: reduce) {
+  .floating,
+  .animate__animated {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00ffcc;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+  }
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0 1rem 0; /* Adjusted margin */
+}
+
+.time-block {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  min-width: 80px;
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.time-block:hover {
+  transform: translateY(-10px);
+}
+
+.time-block span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: block;
+  color: #00ffcc;
+  background: linear-gradient(45deg, #00ffcc, #00ff99);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.time-block p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.message {
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  color: #ddd;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.message:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.launch-date {
+  font-size: 1.1rem;
+  color: #bbb;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 2rem; /* Added margin to separate from introduction */
+}
+
+.launch-date:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.feature:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.feature span {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  margin: 0;
+  color: #ddd;
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Add particle effect */
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 20%, #1a1a1a 20%, #1a1a1a 80%, transparent 80%, transparent),
+              radial-gradient(circle, transparent 20%, #1a1a1a 20%, #1a1a1a 80%, transparent 80%, transparent) 50px 50px;
+  background-size: 100px 100px;
+  animation: moveBackground 20s linear infinite;
+  opacity: 0.1;
+}
+
+@keyframes moveBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* Add credit section */
+.credit {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.credit:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.creator-name {
+  color: #00ffcc;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.creator-name:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+.credit p {
+  margin: 0;
+}
+
+/* Add responsive adjustments */
+@media screen and (max-width: 480px) {
+  .credit {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    bottom: 10px;
+  }
+}
+
+/* Introduction Section Styles */
+.introduction-section {
+  max-width: 900px;
+  margin: 3rem auto 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  /* Add these properties to prevent text selection and copying */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* Prevents iOS context menu */
+  pointer-events: none; /* Prevents text selection on some browsers */
+}
+
+/* Make sure all child elements are also non-selectable */
+.introduction-section * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Re-enable pointer events for interactive elements if needed */
+.introduction-section .course-item {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.intro-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #00ffcc;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.courses-section {
+  margin: 2rem 0;
+}
+
+.courses-section h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: #00ffcc;
+  margin-bottom: 1rem;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.course-item {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.course-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.intro-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.intro-footer p {
+  margin: 1rem 0;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.highlight-text {
+  color: #00ffcc;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.launch-highlight {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: #fff;
+  background: linear-gradient(45deg, rgba(0, 255, 204, 0.2), rgba(0, 255, 204, 0.1));
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+/* Mobile Optimizations */
+@media screen and (max-width: 768px) {
+  .introduction-section {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .course-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .introduction-section {
+    padding: 1rem;
+    margin: 0.5rem auto;
+  }
+
+  .intro-footer {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .course-item:hover {
+    transform: none;
+  }
+}
