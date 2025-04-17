@@ -2,10 +2,11 @@
   background: var(--background-primary);
   padding: 1rem 2rem;
   border-bottom: 1px solid var(--border-color);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  /* Remove blur filter for better performance */
 }
 
 .nav-container {
@@ -28,11 +29,10 @@
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 3rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
   align-items: center;
-  margin-left: auto;
 }
 
 .nav-links a {
@@ -42,7 +42,6 @@
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -81,11 +80,14 @@
   height: 2px;
   background-color: white;
   margin: 5px 0;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
-/* Optimize mobile menu transitions */
 @media (max-width: 768px) {
+  .main-nav {
+    padding: 0.8rem 1rem;
+  }
+
   .hamburger-menu {
     display: block;
   }
@@ -101,20 +103,15 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
-    /* Use opacity instead of transform for better performance */
   }
 
   .nav-links.active {
+    visibility: visible;
     opacity: 1;
     pointer-events: auto;
-  }
-
-  /* Simplify hamburger animation */
-  .hamburger-menu span {
-    transition: transform 0.2s ease;
   }
 
   .hamburger-menu.active span:nth-child(1) {
@@ -131,15 +128,21 @@
 
   .nav-links a {
     font-size: 1.2rem;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
+}
+
+/* Add margin to main content to account for fixed navbar */
+main {
+  margin-top: 80px;
 }
 
 @media (max-width: 480px) {
-  .main-nav {
-    padding: 0.8rem 1rem;
+  main {
+    margin-top: 65px;
   }
 }
-
-
 

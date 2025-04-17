@@ -6,10 +6,9 @@ import './Navigation.css';
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Memoize handlers to prevent unnecessary re-renders
   const toggleMenu = useCallback(() => {
     setIsMenuOpen(prev => !prev);
-    document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
+    document.body.style.overflow = !isMenuOpen ? 'hidden' : 'auto';
   }, [isMenuOpen]);
 
   const closeMenu = useCallback(() => {
@@ -20,9 +19,9 @@ const Navigation = () => {
   return (
     <nav className="main-nav">
       <div className="nav-container">
-        <div className="logo-container">
+        <Link to="/" className="logo-container" onClick={closeMenu}>
           <Logo />
-        </div>
+        </Link>
 
         <button 
           className={`hamburger-menu ${isMenuOpen ? 'active' : ''}`}
@@ -38,6 +37,7 @@ const Navigation = () => {
           <li><Link to="/" onClick={closeMenu}>Home</Link></li>
           <li><Link to="/about" onClick={closeMenu}>About</Link></li>
           <li><Link to="/services" onClick={closeMenu}>Services</Link></li>
+          <li><Link to="/careers" onClick={closeMenu}>Careers</Link></li>
           <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
         </ul>
       </div>
@@ -46,5 +46,4 @@ const Navigation = () => {
 };
 
 export default React.memo(Navigation);
-
 
