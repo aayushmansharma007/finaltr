@@ -1,10 +1,17 @@
-import React, { useState, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useCallback, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../Logo';
 import './Navigation.css';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = 'auto';
+  }, [location]);
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen(prev => !prev);
@@ -46,4 +53,5 @@ const Navigation = () => {
 };
 
 export default React.memo(Navigation);
+
 
