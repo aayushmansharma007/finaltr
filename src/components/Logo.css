@@ -1,13 +1,6 @@
 .logo-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
-  transition: all 0.3s ease;
-}
-
-.logo-container:hover {
-  transform: scale(1.05);
+  display: flex;
+  align-items: center;
 }
 
 .logo-link {
@@ -17,33 +10,24 @@
 }
 
 .logo-full {
-  height: 80px;
+  height: 40px;
   width: auto;
   display: block;
 }
 
 .logo-small {
   display: none;
-  height: 60px;
+  height: 35px;
   width: auto;
 }
 
 @media (max-width: 768px) {
-  .logo-container {
-    position: relative;
-    text-align: center;
-    left: 0;
-    top: 15px;
-    margin-bottom: 15px;
-  }
-
   .logo-full {
     display: none;
   }
 
   .logo-small {
-    display: inline-block;
-    margin: 0 auto;
+    display: block;
   }
 }
 
