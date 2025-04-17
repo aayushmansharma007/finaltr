@@ -2,7 +2,7 @@
   background: var(--background-primary);
   padding: 1rem 2rem;
   border-bottom: 1px solid var(--border-color);
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -64,14 +64,15 @@
 
   .nav-links {
     position: fixed;
-    top: 0;
+    top: 60px; /* Adjust this value based on your mobile header height */
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100vh;
+    height: calc(100vh - 60px); /* Subtract header height */
     background: var(--background-primary);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
     align-items: center;
     gap: 2rem;
     transform: translateX(100%);
@@ -114,15 +115,16 @@
   }
 }
 
-/* Add margin to main content to account for fixed navbar */
+/* Remove the main margin-top styles */
 main {
-  margin-top: 80px;
+  margin-top: 0;
 }
 
 @media (max-width: 480px) {
   main {
-    margin-top: 65px;
+    margin-top: 0;
   }
 }
+
 
 

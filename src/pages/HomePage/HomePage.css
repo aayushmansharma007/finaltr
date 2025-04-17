@@ -37,12 +37,12 @@
 }
 
 .hero-section {
-  min-height: 100vh;
+  min-height: calc(100vh - 60px); /* Subtract header height */
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 80px 20px;
+  padding: 40px 20px;
 }
 
 .hero-content {
@@ -91,4 +91,5 @@
   50% { background-position: 100% 50% }
   100% { background-position: 0% 50% }
 }
+
 
