@@ -7,25 +7,41 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Handle scroll locking
+  const toggleScrollLock = useCallback((lock) => {
+    document.body.style.overflow = lock ? 'hidden' : 'auto';
+    document.body.style.touchAction = lock ? 'none' : 'auto';
+  }, []);
+
   // Close menu and scroll to top when route changes
   useEffect(() => {
     setIsMenuOpen(false);
-    document.body.style.overflow = 'auto';
+    toggleScrollLock(false);
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-  }, [location]);
+  }, [location, toggleScrollLock]);
 
   const toggleMenu = useCallback(() => {
-    setIsMenuOpen(prev => !prev);
-    document.body.style.overflow = !isMenuOpen ? 'hidden' : 'auto';
-  }, [isMenuOpen]);
+    setIsMenuOpen(prev => {
+      const newState = !prev;
+      toggleScrollLock(newState);
+      return newState;
+    });
+  }, [toggleScrollLock]);
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
-    document.body.style.overflow = 'auto';
-  }, []);
+    toggleScrollLock(false);
+  }, [toggleScrollLock]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      toggleScrollLock(false);
+    };
+  }, [toggleScrollLock]);
 
   return (
     <nav className="main-nav">
@@ -57,6 +73,7 @@ const Navigation = () => {
 };
 
 export default React.memo(Navigation);
+
 
 
 

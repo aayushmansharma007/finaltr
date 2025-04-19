@@ -1,0 +1,12 @@
+/* Add this to your App.css or create it if it doesn't exist */
+.app {  padding-top: 60px; /* Height of the navbar */
+}
+@media (max-width: 768px) {  .app {
+    padding-top: 56px; /* Adjust if your mobile navbar height is different */
+  }
+}
+
+
+
+
+
