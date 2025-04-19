@@ -3,63 +3,94 @@
   position: relative;
   overflow: hidden;
   background: var(--background-primary);
+  margin-top: 40px; /* Add space between navbar and hero */
 }
 
 .hero-content {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 120px 20px;
+  margin: 40px auto 0; /* Increased top margin */
+  padding: 80px 40px;
   position: relative;
   z-index: 2;
-  color: var(--text-primary);
-}
-
-.animated-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--primary-gradient);
-  background-size: 400% 400%;
-  opacity: 0.1;
-  animation: gradientFlow 15s ease infinite;
+  background: linear-gradient(to right, #6200EA, #B819D2);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(98, 0, 234, 0.2);
 }
 
 .hero-title {
   font-size: 4.5rem;
   line-height: 1.2;
   margin-bottom: 30px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hero-title.visible {
-  opacity: 1;
-  transform: translateY(0);
+  color: white;
+  font-weight: 700;
 }
 
 .gradient-text {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: white;
   display: inline-block;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+               0 0 20px rgba(255, 255, 255, 0.5),
+               0 0 30px rgba(255, 255, 255, 0.3);
+  animation: textGlow 2s ease-in-out infinite alternate;
 }
 
 .typing-text {
-  border-right: 3px solid #6200EA;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+               0 0 20px rgba(255, 255, 255, 0.5),
+               0 0 30px rgba(255, 255, 255, 0.3);
+  animation: textGlow 2s ease-in-out infinite alternate;
+  position: relative;
+}
+
+.typing-text::after {
+  content: '|';
+  position: absolute;
+  right: -15px;
+  animation: cursorBlink 1s step-start infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+                 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.6),
+                 0 0 40px rgba(255, 255, 255, 0.4);
+  }
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 40px;
   max-width: 700px;
+  font-weight: 500;
+  animation: fadeGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeGlow {
+  from {
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  to {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  }
 }
 
 .hero-cta-group {
@@ -68,60 +99,49 @@
   margin-top: 40px;
 }
 
-.floating-shapes .shape {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
+/* Update CTA buttons for better contrast on purple background */
+.cta-button.primary,
+.cta-button.secondary {  /* Making both buttons identical */
+  background: white;
+  color: #6200EA;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  border: none;  /* Remove border from secondary */
 }
 
-.shape-1 {
-  width: 300px;
-  height: 300px;
-  background: #6200EA;
-  top: -150px;
-  right: -150px;
-  animation: floatAnimation 8s ease-in-out infinite;
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
 }
 
-.shape-2 {
-  width: 200px;
-  height: 200px;
-  background: #B819D2;
-  bottom: -100px;
-  left: -100px;
-  animation: floatAnimation 6s ease-in-out infinite reverse;
-}
-
-.shape-3 {
-  width: 150px;
-  height: 150px;
-  background: #FF0080;
-  top: 50%;
-  right: 10%;
-  animation: floatAnimation 7s ease-in-out infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #6200EA }
+/* Remove the animated background since we have gradient background */
+.animated-background {
+  display: none;
 }
 
 @media (max-width: 768px) {
+  .hero {
+    margin-top: 20px; /* Less space on mobile */
+  }
+  
+  .hero-content {
+    margin-top: 20px;
+    padding: 40px 20px;
+  }
+
   .hero-title {
     font-size: 3rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .hero-cta-group {
     flex-direction: column;
   }
 }
+
+
+
+
 

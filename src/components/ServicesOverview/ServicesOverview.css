@@ -7,10 +7,8 @@
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 60px;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .services-grid {
@@ -22,13 +20,12 @@
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: var(--card-background);
   border-radius: 20px;
   padding: 30px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px var(--shadow-color);
   transition: all 0.3s ease;
 }
 
@@ -44,12 +41,12 @@
 .service-logo {
   width: 60px;
   height: 60px;
-  background: var(--card-background);
+  background: var(--background-secondary);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 .service-logo img {
@@ -65,26 +62,24 @@
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
-.service-card h3 {
+.service-title {
+  color: var(--text-primary);
   font-size: 1.5rem;
-  margin: 20px 0;
+  margin: 1rem 0;
   font-weight: 600;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
-.service-card p {
+.service-description {
   color: var(--text-secondary);
   line-height: 1.6;
-  font-size: 1.1rem;
+  font-weight: 400;
 }
 
 /* Glowing effect on hover */
 .service-card:hover {
-  box-shadow: 0 12px 40px rgba(98, 0, 234, 0.15);
-  border-color: rgba(98, 0, 234, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px var(--shadow-color);
+  background: var(--background-secondary);
 }
 
 .service-card:hover .service-logo {
@@ -126,4 +121,9 @@
     filter: drop-shadow(0 0 15px rgba(98, 0, 234, 0.8));
   }
 }
+
+
+
+
+
 

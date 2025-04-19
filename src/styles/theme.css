@@ -1,17 +1,20 @@
 :root {
-  --primary-gradient: linear-gradient(45deg, #6200EA, #B819D2);
-  --primary-color: #6200EA;
-  --secondary-color: #B819D2;
-  --accent-color: #FF0080;
+  --primary-gradient: linear-gradient(45deg, #3b82f6, #6366f1);
+  --primary-color: #3b82f6;
+  --secondary-color: #6366f1;
+  --accent-color: #0ea5e9;
   
-  /* Dark Theme Colors */
-  --background-primary: #1a1721;
-  --background-secondary: #241e2d;
-  --card-background: #2a2433;
-  --text-primary: #e0e0e0;
-  --text-secondary: #b8b5c3;
-  --border-color: #362f42;
-  --shadow-color: rgba(0, 0, 0, 0.3);
+  /* Background colors remain the same */
+  --background-primary: #f0f2f5;    
+  --background-secondary: #e5e7eb;  
+  --card-background: #f8fafc;       
+  
+  /* Adjusted text colors for better contrast */
+  --text-primary: #1a2234;          /* Darker, more visible primary text */
+  --text-secondary: #394456;        /* Darker secondary text */
+  --text-muted: #4b5563;           /* For less important text */
+  --border-color: #d1d5db;
+  --shadow-color: rgba(51, 65, 85, 0.06);
   --transition-speed: 0.2s;
 }
 
@@ -21,7 +24,7 @@ body {
 }
 
 .card,
-.container-dark {
+.container-light {
   background-color: var(--card-background);
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 20px var(--shadow-color);
@@ -30,45 +33,53 @@ body {
 /* Text styles */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
+  font-weight: 600;
 }
 
 p, span, div {
   color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-/* Links */
+/* Links with better contrast */
 a {
-  color: var(--primary-color);
+  color: #2563eb;  /* Darker blue for better visibility */
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--secondary-color);
+  color: #1d4ed8;  /* Even darker on hover */
 }
 
-/* Gradient Text Effect */
-.gradient-text {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Cards and Containers */
+.elevated-card {
+  background: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
 
-/* Purple Overlay Effect */
-.purple-overlay {
-  position: relative;
+/* Content sections */
+.content-section {
+  background-color: var(--background-secondary);
+  padding: 2rem;
+  border-radius: 8px;
 }
 
-.purple-overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--primary-gradient);
-  opacity: 0.1;
-  pointer-events: none;
+/* Form elements */
+input, textarea, select {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+/* Tables */
+table {
+  background-color: var(--card-background);
+}
+
+tr:nth-child(even) {
+  background-color: var(--background-secondary);
 }
 
 /* Optimize transitions */
@@ -82,4 +93,8 @@ a:hover {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+
+
+
 

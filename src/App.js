@@ -9,21 +9,12 @@ import Footer from './components/Footer/Footer';
 import CareersPage from './pages/CareersPage/CareersPage';
 import ClientPortalPage from './pages/ClientPortalPage/ClientPortalPage';
 import CaseStudiesPage from './pages/CaseStudiesPage/CaseStudiesPage';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const App = () => {
-  useEffect(() => {
-    // Initialize theme from localStorage or system preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    document.documentElement.setAttribute(
-      'data-theme',
-      savedTheme || (prefersDark ? 'dark' : 'light')
-    );
-  }, []);
-
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="app theme-transition">
         <Navigation />
         <Routes>

@@ -58,3 +58,14 @@
     padding: 0 10px;
   }
 }
+
+/* Remove all meet-team-heading related styles */
+.meet-team-heading,
+.meet-team-heading::after,
+@keyframes purpleGlowPulse,
+@keyframes purpleGlow {
+  /* Remove these completely */
+}
+
+
+

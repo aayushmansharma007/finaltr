@@ -6,26 +6,26 @@
 .core-values h2 {
   text-align: center;
   margin-bottom: 40px;
-  color: white;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-               0 0 20px rgba(255, 255, 255, 0.5),
-               0 0 30px rgba(255, 255, 255, 0.3);
+  color: #6200EA;
+  text-shadow: 0 0 10px rgba(98, 0, 234, 0.7),
+               0 0 20px rgba(98, 0, 234, 0.5),
+               0 0 30px rgba(98, 0, 234, 0.3);
   font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 1px;
-  animation: glow 2s ease-in-out infinite alternate;
+  animation: purpleGlow 2s ease-in-out infinite alternate;
 }
 
-@keyframes glow {
+@keyframes purpleGlow {
   from {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-                 0 0 20px rgba(255, 255, 255, 0.5),
-                 0 0 30px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 10px rgba(98, 0, 234, 0.7),
+                 0 0 20px rgba(98, 0, 234, 0.5),
+                 0 0 30px rgba(98, 0, 234, 0.3);
   }
   to {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
-                 0 0 30px rgba(255, 255, 255, 0.6),
-                 0 0 40px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 20px rgba(98, 0, 234, 0.8),
+                 0 0 30px rgba(98, 0, 234, 0.6),
+                 0 0 40px rgba(98, 0, 234, 0.4);
   }
 }
 
@@ -75,4 +75,5 @@
     grid-template-columns: 1fr;
   }
 }
+
 

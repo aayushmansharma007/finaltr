@@ -1,13 +1,19 @@
 .trusted-partners {
   padding: 60px 20px;
-  background: var(--card-background);  /* Changed from white to theme variable */
+  background: linear-gradient(to right, #6200EA, #B819D2);
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 1200px;
 }
 
 .trusted-partners h2 {
   text-align: center;
   margin-bottom: 40px;
   font-size: 2rem;
-  color: var(--text-primary);  /* Changed from #333 to theme variable */
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+               0 0 20px rgba(255, 255, 255, 0.5),
+               0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .partners-grid {
@@ -22,10 +28,11 @@
 .partner-logo {
   text-align: center;
   transition: transform 0.3s ease;
-  background: var(--background-secondary);  /* Added background color */
+  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid var(--border-color);  /* Added border */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .partner-logo img {
@@ -55,3 +62,4 @@
     max-width: 120px;
   }
 }
+

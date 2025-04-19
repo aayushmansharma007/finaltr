@@ -37,7 +37,8 @@
 }
 
 .hero-section {
-  min-height: calc(100vh - 60px); /* Subtract header height */
+  margin-top: 80px; /* Add space between navbar and hero */
+  min-height: calc(100vh - 60px);
   display: flex;
   align-items: center;
   position: relative;
@@ -50,6 +51,12 @@
   margin: 0 auto;
   position: relative;
   z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 60px; /* Slightly less space on mobile */
+  }
 }
 
 .hero-title {
@@ -91,5 +98,6 @@
   50% { background-position: 100% 50% }
   100% { background-position: 0% 50% }
 }
+
 
 

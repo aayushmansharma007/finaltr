@@ -45,19 +45,29 @@
 
 .service-item {
   padding: 30px;
-  background: var(--background-secondary);
+  background: linear-gradient(135deg, rgba(98, 0, 234, 0.1), rgba(184, 25, 210, 0.1));
   border-radius: 15px;
   text-align: center;
   transition: transform 0.3s ease;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(98, 0, 234, 0.2);
 }
 
 .service-item:hover {
   transform: translateY(-5px);
+  background: linear-gradient(135deg, rgba(98, 0, 234, 0.15), rgba(184, 25, 210, 0.15));
+  box-shadow: 0 5px 15px rgba(98, 0, 234, 0.1);
 }
 
 .service-item h4 {
-  color: var(--text-primary);
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Ensure text remains black in all states */
+.service-item p {
+  color: #000000;
 }
 
 .investor-section {
@@ -118,3 +128,4 @@
     grid-template-columns: 1fr;
   }
 }
+

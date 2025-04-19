@@ -5,7 +5,64 @@
 .leadership-section h2 {
   text-align: center;
   margin-bottom: 40px;
-  color: var(--text-primary);
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #6200EA, #B819D2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Add a pseudo-element for the glow effect */
+.leadership-section h2::after {
+  content: "Leadership Team";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6200EA, #B819D2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(8px);
+  opacity: 0.7;
+  animation: purpleGlowPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes purpleGlowPulse {
+  from {
+    filter: blur(8px);
+    opacity: 0.7;
+  }
+  to {
+    filter: blur(12px);
+    opacity: 0.9;
+  }
+}
+
+/* Add text shadow for additional glow */
+.leadership-section h2 {
+  text-shadow: 0 0 10px rgba(98, 0, 234, 0.3),
+               0 0 20px rgba(98, 0, 234, 0.2),
+               0 0 30px rgba(98, 0, 234, 0.1);
+  animation: purpleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes purpleGlow {
+  from {
+    text-shadow: 0 0 10px rgba(98, 0, 234, 0.3),
+                 0 0 20px rgba(98, 0, 234, 0.2),
+                 0 0 30px rgba(98, 0, 234, 0.1);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(98, 0, 234, 0.4),
+                 0 0 25px rgba(98, 0, 234, 0.3),
+                 0 0 35px rgba(98, 0, 234, 0.2);
+  }
 }
 
 .leaders-grid {
@@ -61,3 +118,5 @@
 .linkedin-link:hover {
   opacity: 0.9;
 }
+
+

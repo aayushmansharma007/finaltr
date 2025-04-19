@@ -7,10 +7,14 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Close menu when route changes
+  // Close menu and scroll to top when route changes
   useEffect(() => {
     setIsMenuOpen(false);
     document.body.style.overflow = 'auto';
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }, [location]);
 
   const toggleMenu = useCallback(() => {
@@ -53,5 +57,6 @@ const Navigation = () => {
 };
 
 export default React.memo(Navigation);
+
 
 

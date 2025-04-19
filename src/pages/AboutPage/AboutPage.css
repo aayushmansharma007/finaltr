@@ -6,7 +6,7 @@
 
 .about-hero {
   padding: 60px 20px;
-  background: var(--primary-gradient);
+  background: linear-gradient(to right, #6200EA, #B819D2);
   border-radius: 12px;
   margin: 20px auto;
   max-width: 1200px;
@@ -18,8 +18,25 @@
 
 .hero-title {
   font-size: 2.5rem;
-  color: var(--text-primary);
+  color: white;
   margin-bottom: 16px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+               0 0 20px rgba(255, 255, 255, 0.5),
+               0 0 30px rgba(255, 255, 255, 0.3);
+  animation: whiteGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes whiteGlow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+                 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.6),
+                 0 0 40px rgba(255, 255, 255, 0.4);
+  }
 }
 
 .hero-subtitle {
@@ -53,20 +70,39 @@
 .intro-content {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between boxes */
 }
 
 .intro-content p {
-  color: white !important;
+  color: var(--text-primary) !important;
   font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin: 0; /* Remove default margin */
+  padding: 25px;
+  border: 2px solid #000; /* Black border */
+  border-radius: 12px;
+  background-color: var(--card-background);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Ensure the text stays white */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro-content {
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .intro-content p {
+    padding: 20px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Remove or override any previous white color settings */
 .intro-content p {
-  color: white !important;
+  color: var(--text-primary) !important;
 }
 
 /* Vision Section */
@@ -86,8 +122,35 @@
   font-weight: 600;
   margin-bottom: 30px;
   letter-spacing: -0.5px;
+  display: inline-block;
+  position: relative;
 }
 
+.vision-section h2::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(to right, #6200EA, #B819D2);
+  border-radius: 3px;
+  animation: underlineAnimation 1s ease-in-out infinite; /* 0.5s for appear + 0.5s for disappear */
+}
+
+@keyframes underlineAnimation {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Keep existing vision statement styles */
 .vision-statement {
   max-width: 900px;
   margin: 0 auto;
@@ -238,15 +301,5 @@
     width: calc(100% - 60px);
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
