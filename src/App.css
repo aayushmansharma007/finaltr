@@ -11,7 +11,7 @@ body, html {
 }
 
 .app {
-  padding-top: 60px;
+  padding-top: 0; /* Remove this top padding */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@ body, html {
 main {
   flex: 1;
   width: 100%;
-  padding: 0 20px;
+  padding: 80px 20px 0; /* Add top padding here instead */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -33,7 +33,7 @@ main {
   }
 
   main {
-    padding: 0 15px;
+    padding: 60px 15px 0; /* Slightly less padding on mobile */
     margin-top: 0;
   }
 }

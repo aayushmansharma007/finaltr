@@ -54,6 +54,7 @@ const Navigation = () => {
           className={`hamburger-menu ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
         >
           <span></span>
           <span></span>
@@ -73,6 +74,7 @@ const Navigation = () => {
 };
 
 export default React.memo(Navigation);
+
 
 
 

@@ -3,12 +3,12 @@
   position: relative;
   overflow: hidden;
   background: var(--background-primary);
-  margin-top: 40px; /* Add space between navbar and hero */
+  margin-top: 80px; /* Increase space between navbar and hero */
 }
 
 .hero-content {
   max-width: 1200px;
-  margin: 40px auto 0; /* Increased top margin */
+  margin: 40px auto 0;
   padding: 80px 40px;
   position: relative;
   z-index: 2;
@@ -120,7 +120,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    margin-top: 20px; /* Less space on mobile */
+    margin-top: 60px; /* Less space on mobile */
   }
   
   .hero-content {
@@ -140,6 +140,7 @@
     flex-direction: column;
   }
 }
+
 
 
 
