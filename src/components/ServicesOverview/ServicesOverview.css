@@ -1,12 +1,12 @@
 .services-overview {
-  padding: 80px 20px;
+  padding: 40px 0;
   background: var(--background-primary);
 }
 
 .services-title {
   text-align: center;
+  margin-bottom: 40px;
   font-size: 2.5rem;
-  margin-bottom: 60px;
   color: var(--text-primary);
   font-weight: 700;
 }
@@ -15,66 +15,50 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 0 20px;
   width: 100%;
 }
 
 .service-card {
   background: var(--card-background);
-  border-radius: 20px;
-  padding: 30px;
-  text-align: center;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 8px 32px var(--shadow-color);
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .service-icon-container {
-  position: relative;
-  height: 100px;
-  margin-bottom: 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.service-logo {
-  width: 60px;
-  height: 60px;
-  background: var(--background-secondary);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 15px var(--shadow-color);
+  gap: 12px;
 }
 
 .service-logo img {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .service-emoji {
-  position: absolute;
-  top: 0;
-  right: 30%;
   font-size: 24px;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
-.service-title {
-  color: var(--text-primary);
+.service-card h3 {
   font-size: 1.5rem;
-  margin: 1rem 0;
-  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
 }
 
-.service-description {
+.service-card p {
+  margin: 0;
   color: var(--text-secondary);
   line-height: 1.6;
-  font-weight: 400;
 }
 
 /* Glowing effect on hover */
@@ -90,19 +74,26 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .services-overview {
+    padding: 20px 0;
+  }
+
   .services-title {
     font-size: 2rem;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .services-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
     padding: 0 15px;
+    gap: 20px;
   }
 
   .service-card {
-    padding: 25px;
+    padding: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
   }
 }
 
@@ -124,6 +115,7 @@
     filter: drop-shadow(0 0 15px rgba(98, 0, 234, 0.8));
   }
 }
+
 
 
 

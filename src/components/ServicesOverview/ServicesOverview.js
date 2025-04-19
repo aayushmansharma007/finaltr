@@ -81,26 +81,28 @@ const ServicesOverview = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.02 }}
           >
-            <div className="service-icon-container">
-              <motion.div 
-                className="service-logo"
-                variants={iconVariants}
-                whileHover="hover"
-              >
-                <img src={service.logoSrc} alt={service.title} />
-              </motion.div>
-              <motion.span 
-                className="service-emoji"
-                variants={emojiVariants}
-                animate="animate"
-              >
-                {service.icon}
-              </motion.span>
+            <div className="service-content">
+              <div className="service-icon-container">
+                <motion.div 
+                  className="service-logo"
+                  variants={iconVariants}
+                  whileHover="hover"
+                >
+                  <img src={service.logoSrc} alt={service.title} />
+                </motion.div>
+                <motion.span 
+                  className="service-emoji"
+                  variants={emojiVariants}
+                  animate="animate"
+                >
+                  {service.icon}
+                </motion.span>
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
             </div>
-            <h3 style={{ color: service.color }}>{service.title}</h3>
-            <p>{service.description}</p>
           </motion.div>
         ))}
       </div>
@@ -109,3 +111,4 @@ const ServicesOverview = () => {
 };
 
 export default ServicesOverview;
+
