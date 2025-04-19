@@ -7,31 +7,7 @@
   text-align: center;
   margin-bottom: 40px;
   font-size: 2.5rem;
-  background: linear-gradient(135deg, #6200EA, #B819D2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  text-shadow: 0 0 10px rgba(98, 0, 234, 0.3),
-               0 0 20px rgba(98, 0, 234, 0.2),
-               0 0 30px rgba(98, 0, 234, 0.1);
-  animation: purpleGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes purpleGlow {
-  from {
-    text-shadow: 0 0 10px rgba(98, 0, 234, 0.3),
-                 0 0 20px rgba(98, 0, 234, 0.2),
-                 0 0 30px rgba(98, 0, 234, 0.1);
-  }
-  to {
-    text-shadow: 0 0 15px rgba(98, 0, 234, 0.4),
-                 0 0 25px rgba(98, 0, 234, 0.3),
-                 0 0 35px rgba(98, 0, 234, 0.2);
-  }
+  color: #6200EA;
 }
 
 .culture-grid {
@@ -48,6 +24,7 @@
   background: var(--card-background);
   border-radius: 12px;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .culture-card:hover {
@@ -67,7 +44,52 @@
 }
 
 .culture-card p {
-  color: #666;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .work-culture {
+    padding: 40px 15px;
+  }
+
+  .work-culture h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .culture-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .culture-card {
+    padding: 20px;
+  }
+
+  .culture-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .culture-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-culture {
+    padding: 30px 10px;
+  }
+
+  .work-culture h2 {
+    font-size: 1.8rem;
+  }
+
+  .culture-card {
+    padding: 15px;
+  }
+}
+
 
