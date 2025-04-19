@@ -1,6 +1,7 @@
 .job-openings {
-  padding: 60px 20px;
+  padding: 60px 0; /* Remove horizontal padding here */
   background: #f8f9fa;
+  width: 100%;
 }
 
 .job-openings h2 {
@@ -39,14 +40,19 @@
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px; /* Add padding to prevent cards from touching edges */
+  padding: 0 20px; /* Add consistent padding here */
 }
 
 /* Add responsive adjustments */
 @media (max-width: 768px) {
+  .job-openings {
+    padding: 40px 0; /* Adjust vertical padding only */
+  }
+
   .jobs-grid {
-    grid-template-columns: 1fr; /* Force single column on mobile */
+    grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0 15px; /* Consistent padding for mobile */
   }
 
   .job-card {
@@ -56,8 +62,9 @@
   }
 
   .filters {
-    flex-wrap: wrap; /* Allow filter buttons to wrap on small screens */
-    padding: 0 15px;
+    flex-wrap: wrap;
+    padding: 0 15px; /* Match grid padding */
+    margin-bottom: 30px;
   }
 
   .filters button {
@@ -222,6 +229,7 @@
                  0 0 25px rgba(255, 255, 255, 0.4);
   }
 }
+
 
 
 
