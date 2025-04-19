@@ -35,10 +35,52 @@
 
 .jobs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 15px; /* Add padding to prevent cards from touching edges */
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .jobs-grid {
+    grid-template-columns: 1fr; /* Force single column on mobile */
+    gap: 20px;
+  }
+
+  .job-card {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .filters {
+    flex-wrap: wrap; /* Allow filter buttons to wrap on small screens */
+    padding: 0 15px;
+  }
+
+  .filters button {
+    flex: 1;
+    min-width: 120px;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .jobs-grid {
+    padding: 0 10px;
+  }
+
+  .job-card {
+    padding: 15px;
+  }
+
+  .filters {
+    gap: 10px;
+    padding: 0 10px;
+  }
 }
 
 .job-card {
@@ -180,5 +222,6 @@
                  0 0 25px rgba(255, 255, 255, 0.4);
   }
 }
+
 
 
