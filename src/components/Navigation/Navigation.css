@@ -69,13 +69,14 @@
   }
 
   .nav-links {
+    display: none; /* Hide the default nav links */
     position: fixed;
-    top: 60px; /* Adjust this value based on your mobile header height */
+    top: 60px;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%; /* Add this line */
-    height: calc(100vh - 60px); /* Subtract header height */
+    width: 100%;
+    height: calc(100vh - 60px);
     background: var(--background-primary);
     flex-direction: column;
     justify-content: flex-start;
@@ -88,6 +89,7 @@
   }
 
   .nav-links.active {
+    display: flex; /* Show nav links only when active */
     transform: translateX(0);
   }
 
@@ -132,6 +134,7 @@ main {
     margin-top: 0;
   }
 }
+
 
 
 
