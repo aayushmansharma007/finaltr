@@ -1,7 +1,7 @@
 .services-page {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 80px 20px 40px; /* Add top padding to create space below navbar */
 }
 
 .services-tabs {
@@ -9,45 +9,56 @@
   justify-content: center;
   gap: 20px;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 .tab-button {
-  padding: 15px 30px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 30px;
-  background: #f5f5f5;
+  border-radius: 8px;
+  background: var(--background-secondary);
   cursor: pointer;
-  font-size: 1.1rem;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .tab-button.active {
-  background: linear-gradient(45deg, #6200EA, #B819D2);
+  background: #6200EA;
   color: white;
-  box-shadow: 0 4px 15px rgba(98, 0, 234, 0.2);
-}
-
-.tab-icon {
-  font-size: 1.3rem;
 }
 
 .service-content {
-  min-height: 600px;
-  animation: fadeIn 0.3s ease;
+  margin-top: 40px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* Mobile Styles */
 @media (max-width: 768px) {
+  .services-page {
+    padding: 70px 15px 30px; /* Adjust padding for mobile */
+  }
+
+  .services-tabs {
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-page {
+    padding: 60px 10px 20px; /* Further adjust padding for smaller screens */
+  }
+
   .services-tabs {
     flex-direction: column;
-    gap: 10px;
+    width: 100%;
   }
 
   .tab-button {
