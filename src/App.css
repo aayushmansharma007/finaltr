@@ -1,24 +1,23 @@
 /* Add this to your App.css or create it if it doesn't exist */
 .app {
-  padding-top: 56px; /* Match mobile navbar height */
+  padding-top: 60px; /* Height of the navbar */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 main {
   flex: 1;
   width: 100%;
-  padding-top: 30px; /* Increased padding for better spacing */
+  margin-top: 20px; /* Add additional space between navbar and content */
 }
 
 @media (max-width: 768px) {
   .app {
-    padding-top: 56px;
+    padding-top: 56px; /* Adjust for mobile navbar height */
   }
 
   main {
-    padding-top: 20px;
+    margin-top: 15px;
   }
 }
