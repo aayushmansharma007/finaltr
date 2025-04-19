@@ -5,7 +5,23 @@ import './Navigation.css';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
   const location = useLocation();
+
+  // Handle scroll visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const visible = prevScrollPos > currentScrollPos || currentScrollPos < 10;
+
+      setPrevScrollPos(currentScrollPos);
+      setVisible(visible);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
 
   // Handle scroll locking
   const toggleScrollLock = useCallback((lock) => {
@@ -44,7 +60,7 @@ const Navigation = () => {
   }, [toggleScrollLock]);
 
   return (
-    <nav className="main-nav">
+    <nav className={`main-nav ${visible ? 'nav-visible' : 'nav-hidden'}`}>
       <div className="nav-container">
         <Link to="/" className="logo-container" onClick={closeMenu}>
           <Logo />
@@ -74,6 +90,7 @@ const Navigation = () => {
 };
 
 export default React.memo(Navigation);
+
 
 
 
