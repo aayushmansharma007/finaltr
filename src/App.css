@@ -1,9 +1,22 @@
-/* Add this to your App.css or create it if it doesn't exist */
+/* Add this at the top of the file */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 .app {
-  padding-top: 60px; /* Height of the navbar */
+  padding-top: 60px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 main {

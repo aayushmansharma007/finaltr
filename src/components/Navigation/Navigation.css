@@ -74,6 +74,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%; /* Add this line */
     height: calc(100vh - 60px); /* Subtract header height */
     background: var(--background-primary);
     flex-direction: column;
@@ -131,6 +132,7 @@ main {
     margin-top: 0;
   }
 }
+
 
 
 

@@ -17,6 +17,8 @@
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
 }
 
 .service-card {
@@ -96,6 +98,7 @@
   .services-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0 15px;
   }
 
   .service-card {
@@ -121,6 +124,7 @@
     filter: drop-shadow(0 0 15px rgba(98, 0, 234, 0.8));
   }
 }
+
 
 
 
