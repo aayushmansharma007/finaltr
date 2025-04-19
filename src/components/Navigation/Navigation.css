@@ -1,23 +1,23 @@
 .main-nav {
   background: var(--background-primary);
-  padding: 1rem 2rem;
+  padding: 0.8rem 1rem;
   border-bottom: 1px solid var(--border-color);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 56px; /* Fixed height for mobile */
 }
 
-/* Ensure content starts below navbar */
 .nav-container {
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px; /* Fixed height for navbar */
+  height: 100%;
 }
 
 .nav-links {
@@ -136,6 +136,7 @@ main {
     margin-top: 0;
   }
 }
+
 
 
 

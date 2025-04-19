@@ -1,7 +1,17 @@
 .services-page {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 80px 20px 40px; /* Add top padding to create space below navbar */
+  padding: 30px 20px; /* Reduced top padding since we're handling it in main */
+}
+
+/* Hero section specific styles */
+.hero-section {
+  margin-top: 20px; /* Add space after navbar */
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #6200EA, #B819D2);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
 }
 
 .services-tabs {
@@ -36,7 +46,13 @@
 /* Mobile Styles */
 @media (max-width: 768px) {
   .services-page {
-    padding: 70px 15px 30px; /* Adjust padding for mobile */
+    padding: 20px 15px;
+  }
+
+  .hero-section {
+    margin-top: 15px;
+    padding: 30px 15px;
+    border-radius: 15px;
   }
 
   .services-tabs {
@@ -53,7 +69,13 @@
 
 @media (max-width: 480px) {
   .services-page {
-    padding: 60px 10px 20px; /* Further adjust padding for smaller screens */
+    padding: 15px 10px;
+  }
+
+  .hero-section {
+    margin-top: 10px;
+    padding: 20px 10px;
+    border-radius: 10px;
   }
 
   .services-tabs {
@@ -66,3 +88,4 @@
     justify-content: center;
   }
 }
+
