@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Timeline from '../../components/Timeline/Timeline';
 import LeadershipTeam from '../../components/LeadershipTeam/LeadershipTeam';
@@ -6,6 +6,16 @@ import CoreValues from '../../components/CoreValues/CoreValues';
 import './AboutPage.css';
 
 const AboutPage = () => {
+  // Optimize initial load
+  useEffect(() => {
+    // Preload images or heavy content
+    const preloadContent = () => {
+      // Add any heavy content preloading here
+    };
+
+    preloadContent();
+  }, []);
+
   const milestones = [
     {
       year: '2025',
@@ -70,7 +80,7 @@ const AboutPage = () => {
         <section className="company-intro">
           <div className="intro-content">
             <p>
-              Lanos Pvt Ltd is a high-impact technology company driven by a bold vision—to bridge the digital divide across emerging economies. We build modern, scalable IT systems, provide consultancy for future-proof transformation, and run India's most mission-driven EdTech platform tailored for school students, college graduates, and working professionals.
+              Lanos Pvt Ltd is a high-impact technology company driven by a bold vision—to bridge the digital divide across emerging economies. We build modern, scalable IT systems, provide consultancy for future-proof transformation, and run India's most mission-driven EdTech platform.
             </p>
             <p>
               Our business sits at the intersection of technology innovation, scalable consultancy, and practical skill development. Whether modernizing governance platforms or training the next generation of developers, we are deeply committed to creating value that transcends boundaries.
@@ -88,9 +98,7 @@ const AboutPage = () => {
         </section>
 
         <CoreValues values={coreValues} />
-        
         <Timeline milestones={milestones} />
-        
         <LeadershipTeam />
       </div>
     </>
@@ -98,6 +106,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-
-
 
