@@ -38,14 +38,12 @@ const Hero = () => {
           />
         </div>
       </div>
-      <video className="hero-background-video" autoPlay loop muted>
-        <source src="/assets/videos/tech-loop.mp4" type="video/mp4" />
-      </video>
     </section>
   );
 };
 
 export default Hero;
+
 
 
 

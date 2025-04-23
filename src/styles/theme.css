@@ -1,4 +1,9 @@
 :root {
+  /* Add font family variables */
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Clash Display', sans-serif;
+  
+  /* Existing variables */
   --primary-gradient: linear-gradient(45deg, #3b82f6, #6366f1);
   --primary-color: #3b82f6;
   --secondary-color: #6366f1;
@@ -18,7 +23,9 @@
   --transition-speed: 0.2s;
 }
 
+/* Apply fonts */
 body {
+  font-family: var(--font-primary);
   background-color: var(--background-primary);
   color: var(--text-primary);
 }
@@ -32,8 +39,10 @@ body {
 
 /* Text styles */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
   color: var(--text-primary);
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 p, span, div {
@@ -93,6 +102,8 @@ tr:nth-child(even) {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+
 
 
 

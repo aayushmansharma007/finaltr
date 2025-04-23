@@ -19,78 +19,59 @@
 }
 
 .hero-title {
-  font-size: 4.5rem;
-  line-height: 1.2;
-  margin-bottom: 30px;
-  color: white;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
   font-weight: 700;
+  color: white;
 }
 
 .gradient-text {
   color: white;
   display: inline-block;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-               0 0 20px rgba(255, 255, 255, 0.5),
-               0 0 30px rgba(255, 255, 255, 0.3);
-  animation: textGlow 2s ease-in-out infinite alternate;
 }
 
 .typing-text {
   color: white;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-               0 0 20px rgba(255, 255, 255, 0.5),
-               0 0 30px rgba(255, 255, 255, 0.3);
-  animation: textGlow 2s ease-in-out infinite alternate;
-  position: relative;
+  display: inline-block;
+  border-right: 4px solid white;
+  animation: blink-caret 0.75s step-end infinite;
+  /* Remove typing animation and related properties */
 }
 
-.typing-text::after {
-  content: '|';
-  position: absolute;
-  right: -15px;
-  animation: cursorBlink 1s step-start infinite;
-}
-
-@keyframes cursorBlink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes textGlow {
-  from {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-                 0 0 20px rgba(255, 255, 255, 0.5),
-                 0 0 30px rgba(255, 255, 255, 0.3);
-  }
-  to {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
-                 0 0 30px rgba(255, 255, 255, 0.6),
-                 0 0 40px rgba(255, 255, 255, 0.4);
-  }
+/* Remove typing animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white }
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 40px;
-  max-width: 700px;
-  font-weight: 500;
-  animation: fadeGlow 3s ease-in-out infinite alternate;
+  font-family: var(--font-primary);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  color: white;
+  margin-bottom: 2.5rem;
+  max-width: 650px;
 }
 
-@keyframes fadeGlow {
-  from {
-    opacity: 0.8;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
-  to {
-    opacity: 1;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-  }
+/* Section headings */
+.section-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
 }
 
 .hero-cta-group {
@@ -140,6 +121,11 @@
     flex-direction: column;
   }
 }
+
+
+
+
+
 
 
 
