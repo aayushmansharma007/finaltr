@@ -1,8 +1,17 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .consultation-form {
   width: 100%;
   color: #333;
   max-width: 500px;
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .consultation-form h2 {
@@ -11,10 +20,12 @@
   margin-bottom: 1.5rem;
   text-align: center;
   color: #2d3748;
+  word-wrap: break-word; /* Ensure text wraps properly */
 }
 
 .form-group {
   margin-bottom: 1.25rem;
+  width: 100%;
 }
 
 .form-group label {
@@ -27,11 +38,13 @@
 .form-group input,
 .form-group select {
   width: 100%;
+  max-width: 100%; /* Ensure inputs don't overflow */
   padding: 0.75rem;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 1rem;
   transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -45,6 +58,7 @@
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+  width: 100%;
 }
 
 .submit-btn,
@@ -57,6 +71,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap; /* Prevent button text from wrapping */
 }
 
 .submit-btn {
@@ -82,15 +97,19 @@
 @media (max-width: 768px) {
   .consultation-form {
     padding: 20px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .consultation-form h2 {
     font-size: 1.5rem;
     margin-bottom: 1.25rem;
+    padding: 0 10px;
   }
 
   .form-group {
     margin-bottom: 1rem;
+    padding: 0;
   }
 
   .form-group input,
@@ -104,11 +123,19 @@
 @media (max-width: 480px) {
   .consultation-form {
     padding: 15px;
+    margin: 0;
+    width: 100%;
+    min-width: 0;
   }
 
   .consultation-form h2 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
+    padding: 0;
+  }
+
+  .form-group {
+    margin-bottom: 0.875rem;
   }
 
   .form-group label {
@@ -119,12 +146,14 @@
   .form-group select {
     padding: 0.5rem;
     font-size: 0.9rem;
+    width: 100%;
   }
 
   .form-actions {
     flex-direction: column;
     gap: 0.75rem;
     margin-top: 1.5rem;
+    padding: 0;
   }
 
   .submit-btn,
@@ -132,6 +161,7 @@
     width: 100%;
     padding: 0.625rem;
     font-size: 0.95rem;
+    margin: 0;
   }
 }
 
@@ -166,6 +196,8 @@
     padding: 10px;
     max-height: 85vh;
     overflow-y: auto;
+    margin: 0;
+    width: 100%;
   }
 
   .form-group {
@@ -177,6 +209,7 @@
     margin-bottom: 0.75rem;
   }
 }
+
 
 
 
