@@ -14,29 +14,68 @@
 }
 
 .footer-section h3,
-.footer-section h4,
-.footer-section p {
+.footer-section h4 {
   color: white;
-}
-
-.footer-section h3 {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .footer-section p {
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 15px;
   line-height: 1.6;
 }
 
-.footer-section ul li a {
-  color: white;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.footer-section ul li a:hover {
-  opacity: 0.8;
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a,
+.footer-register-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: inline-block;
+  position: relative;
+  padding: 2px 0;
+}
+
+.footer-section ul li a::after,
+.footer-register-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.footer-section ul li a:hover,
+.footer-register-link:hover {
+  color: white;
+}
+
+.footer-section ul li a:hover::after,
+.footer-register-link:hover::after {
+  width: 100%;
+}
+
+.footer-register-link {
+  background: none;
+  border: none;
+  padding: 2px 0;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .footer-bottom {
@@ -47,5 +86,17 @@
 }
 
 .footer-bottom p {
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
 }
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+}
+
