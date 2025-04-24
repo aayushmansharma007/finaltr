@@ -1,10 +1,13 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../Logo';
+import Modal from '../Modal/Modal';
+import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import './Navigation.css';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const location = useLocation();
@@ -83,13 +86,31 @@ const Navigation = () => {
           <li><Link to="/services" onClick={closeMenu}>Services</Link></li>
           <li><Link to="/careers" onClick={closeMenu}>Careers</Link></li>
           <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
+          <li>
+            <button 
+              className="register-btn"
+              onClick={() => {
+                closeMenu();
+                setShowRegistrationForm(true);
+              }}
+            >
+              Register
+            </button>
+          </li>
         </ul>
       </div>
+
+      {showRegistrationForm && (
+        <Modal onClose={() => setShowRegistrationForm(false)}>
+          <RegistrationForm onClose={() => setShowRegistrationForm(false)} />
+        </Modal>
+      )}
     </nav>
   );
 };
 
 export default React.memo(Navigation);
+
 
 
 
