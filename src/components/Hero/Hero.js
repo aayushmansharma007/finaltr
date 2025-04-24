@@ -1,15 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import Modal from '../Modal/Modal';
+import ConsultationForm from '../ConsultationForm/ConsultationForm';
 import CTAButton from '../CTAButton/CTAButton';
 import './Hero.css';
 
 const Hero = () => {
+  const [showConsultationForm, setShowConsultationForm] = useState(false);
   const titleRef = useRef(null);
-
-  useEffect(() => {
-    if (titleRef.current) {
-      titleRef.current.classList.add('visible');
-    }
-  }, []);
 
   return (
     <section className="hero">
@@ -29,6 +26,7 @@ const Hero = () => {
             type="primary"
             trackingId="hero_consultation_btn"
             className="animate-ripple"
+            onClick={() => setShowConsultationForm(true)}
           />
           <CTAButton 
             text="Download Investor Deck" 
@@ -38,11 +36,20 @@ const Hero = () => {
           />
         </div>
       </div>
+
+      {showConsultationForm && (
+        <Modal onClose={() => setShowConsultationForm(false)}>
+          <ConsultationForm onClose={() => setShowConsultationForm(false)} />
+        </Modal>
+      )}
     </section>
   );
 };
 
 export default Hero;
+
+
+
 
 
 
