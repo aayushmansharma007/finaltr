@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  padding: 20px;
+  padding: 15px;
   box-sizing: border-box;
 }
 
@@ -20,11 +20,12 @@
   border-radius: 12px;
   width: 100%;
   max-width: 500px;
-  /* Remove max-height to prevent form from being pushed down */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   transform: translateY(0);
   animation: modalSlideIn 0.3s ease;
-  margin: auto; /* Center vertically if content is shorter than viewport */
+  margin: auto;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-close {
@@ -56,15 +57,35 @@
   }
 }
 
-/* Ensure the modal is always in view on mobile */
-@media (max-height: 700px) {
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-content {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+}
+
+/* Handle smaller screens and landscape orientation */
+@media (max-height: 600px) {
   .modal-overlay {
     align-items: flex-start;
-    padding-top: 50px;
+    padding-top: 10px;
   }
-  
+
   .modal-content {
     margin-top: 0;
+    max-height: 95vh;
   }
 }
 
@@ -72,6 +93,7 @@
 body.modal-open {
   overflow: hidden;
 }
+
 
 
 
