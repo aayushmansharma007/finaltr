@@ -41,8 +41,6 @@ const RegistrationForm = ({ onClose }) => {
           })
         });
 
-        const data = await response.json();
-
         if (response.ok) {
           succeeded = true;
           setStatus({ type: 'success', message: 'Registration successful!' });
@@ -50,8 +48,6 @@ const RegistrationForm = ({ onClose }) => {
             onClose();
           }, 2000);
           break;
-        } else {
-          console.log(`Server error from ${endpoint}:`, data);
         }
       } catch (error) {
         console.log(`Failed to submit to ${endpoint}:`, error);
@@ -153,7 +149,6 @@ const RegistrationForm = ({ onClose }) => {
 };
 
 export default RegistrationForm;
-
 
 
 

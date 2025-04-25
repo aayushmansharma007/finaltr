@@ -22,12 +22,10 @@ const RegistrationList = () => {
       'http://localhost:8080/registered/users'
     ];
 
-    let allRegistrations = [];
-    let fetchedFromAny = false;
+    let succeeded = false;
 
     for (const endpoint of endpoints) {
       try {
-        console.log(`Fetching from ${endpoint}`);
         const response = await fetch(endpoint, {
           method: 'GET',
           headers: {
@@ -38,28 +36,19 @@ const RegistrationList = () => {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(`Data received from ${endpoint}:`, data);
           const registrationsArray = data.content || [];
-          
-          // Merge registrations, avoiding duplicates based on ID
-          registrationsArray.forEach(registration => {
-            if (!allRegistrations.some(r => r.id === registration.id || r._id === registration._id)) {
-              allRegistrations.push(registration);
-            }
-          });
-          
-          fetchedFromAny = true;
+          setRegistrations(registrationsArray);
+          setLoading(false);
+          succeeded = true;
+          break;
         }
       } catch (err) {
         console.error(`Error fetching from ${endpoint}:`, err);
       }
     }
 
-    if (fetchedFromAny) {
-      setRegistrations(allRegistrations);
-      setLoading(false);
-    } else {
-      setError('Failed to fetch registrations from all servers');
+    if (!succeeded) {
+      setError('Failed to fetch registrations');
       setLoading(false);
     }
   };
@@ -143,7 +132,5 @@ const RegistrationList = () => {
 };
 
 export default RegistrationList;
-
-
 
 
