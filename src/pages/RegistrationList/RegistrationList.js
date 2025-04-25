@@ -17,30 +17,38 @@ const RegistrationList = () => {
   }, [isAuthenticated]);
 
   const fetchRegistrations = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/registered/users', {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-      });
+    const endpoints = [
+      'https://lanostechbackend.onrender.com/registered/users',
+      'http://localhost:8080/registered/users'
+    ];
 
-      if (!response.ok) {
-        throw new Error(
-          response.status === 404 
-            ? 'No registrations found'
-            : 'Failed to fetch registrations'
-        );
+    let succeeded = false;
+
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const registrationsArray = data.content || [];
+          setRegistrations(registrationsArray);
+          setLoading(false);
+          succeeded = true;
+          break;
+        }
+      } catch (err) {
+        console.error(`Error fetching from ${endpoint}:`, err);
       }
+    }
 
-      const data = await response.json();
-      const registrationsArray = data.content || [];
-      setRegistrations(registrationsArray);
-      setLoading(false);
-    } catch (err) {
-      console.error('Error in fetchRegistrations:', err);
-      setError(err.message);
+    if (!succeeded) {
+      setError('Failed to fetch registrations');
       setLoading(false);
     }
   };
@@ -124,4 +132,5 @@ const RegistrationList = () => {
 };
 
 export default RegistrationList;
+
 

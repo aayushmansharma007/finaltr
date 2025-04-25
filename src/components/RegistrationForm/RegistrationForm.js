@@ -21,27 +21,40 @@ const RegistrationForm = ({ onClose }) => {
     e.preventDefault();
     setStatus({ type: 'loading', message: 'Submitting...' });
 
-    try {
-      const response = await fetch('http://localhost:8080/registered/add/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          applyingFor: formData.applyingFor.toUpperCase()
-        })
-      });
+    const endpoints = [
+      'https://lanostechbackend.onrender.com/registered/add/users',
+      'http://localhost:8080/registered/add/users'
+    ];
 
-      if (!response.ok) {
-        throw new Error('Failed to submit registration');
+    let succeeded = false;
+
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            applyingFor: formData.applyingFor.toUpperCase()
+          })
+        });
+
+        if (response.ok) {
+          succeeded = true;
+          setStatus({ type: 'success', message: 'Registration successful!' });
+          setTimeout(() => {
+            onClose();
+          }, 2000);
+          break;
+        }
+      } catch (error) {
+        console.log(`Failed to submit to ${endpoint}:`, error);
       }
+    }
 
-      setStatus({ type: 'success', message: 'Registration successful!' });
-      setTimeout(() => {
-        onClose();
-      }, 2000);
-    } catch (error) {
+    if (!succeeded) {
       setStatus({ 
         type: 'error', 
         message: 'Failed to submit registration. Please try again.' 
@@ -136,6 +149,7 @@ const RegistrationForm = ({ onClose }) => {
 };
 
 export default RegistrationForm;
+
 
 
 
