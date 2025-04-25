@@ -71,3 +71,32 @@
 .cancel-btn:hover {
   background: #e0e0e0;
 }
+
+/* Add these new styles to your existing CSS */
+.status-message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.status-message.loading {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-message.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-message.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.submit-btn:disabled,
+.cancel-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

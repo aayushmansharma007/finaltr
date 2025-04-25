@@ -8,6 +8,7 @@ const RegistrationForm = ({ onClose }) => {
     mobileNumber: '',
     applyingFor: ''
   });
+  const [status, setStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e) => {
     setFormData({
@@ -18,12 +19,33 @@ const RegistrationForm = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus({ type: 'loading', message: 'Submitting...' });
+
     try {
-      // Implement your form submission logic here
-      console.log('Form submitted:', formData);
-      onClose();
+      const response = await fetch('http://localhost:8080/registered/add/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          applyingFor: formData.applyingFor.toUpperCase()
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit registration');
+      }
+
+      setStatus({ type: 'success', message: 'Registration successful!' });
+      setTimeout(() => {
+        onClose();
+      }, 2000);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      setStatus({ 
+        type: 'error', 
+        message: 'Failed to submit registration. Please try again.' 
+      });
     }
   };
 
@@ -31,6 +53,12 @@ const RegistrationForm = ({ onClose }) => {
     <form className="registration-form" onSubmit={handleSubmit}>
       <h2>Register with Us</h2>
       
+      {status.message && (
+        <div className={`status-message ${status.type}`}>
+          {status.message}
+        </div>
+      )}
+
       <div className="form-group">
         <label htmlFor="name">Full Name *</label>
         <input
@@ -87,8 +115,19 @@ const RegistrationForm = ({ onClose }) => {
       </div>
 
       <div className="form-actions">
-        <button type="submit" className="submit-btn">Register</button>
-        <button type="button" className="cancel-btn" onClick={onClose}>
+        <button 
+          type="submit" 
+          className="submit-btn"
+          disabled={status.type === 'loading'}
+        >
+          {status.type === 'loading' ? 'Submitting...' : 'Register'}
+        </button>
+        <button 
+          type="button" 
+          className="cancel-btn" 
+          onClick={onClose}
+          disabled={status.type === 'loading'}
+        >
           Cancel
         </button>
       </div>
@@ -97,3 +136,6 @@ const RegistrationForm = ({ onClose }) => {
 };
 
 export default RegistrationForm;
+
+
+
