@@ -20,7 +20,6 @@ const RegistrationForm = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({ type: 'loading', message: 'Submitting...' });
-    console.log('Submitting form data:', formData);
 
     const endpoints = [
       'https://lanostechbackend.onrender.com/registered/add/users',
@@ -31,7 +30,6 @@ const RegistrationForm = ({ onClose }) => {
 
     for (const endpoint of endpoints) {
       try {
-        console.log(`Trying endpoint: ${endpoint}`);
         const response = await fetch(endpoint, {
           method: 'POST',
           headers: {
@@ -44,7 +42,6 @@ const RegistrationForm = ({ onClose }) => {
         });
 
         const data = await response.json();
-        console.log(`Response from ${endpoint}:`, data);
 
         if (response.ok) {
           succeeded = true;
@@ -57,7 +54,7 @@ const RegistrationForm = ({ onClose }) => {
           console.log(`Server error from ${endpoint}:`, data);
         }
       } catch (error) {
-        console.error(`Failed to submit to ${endpoint}:`, error);
+        console.log(`Failed to submit to ${endpoint}:`, error);
       }
     }
 
@@ -156,7 +153,6 @@ const RegistrationForm = ({ onClose }) => {
 };
 
 export default RegistrationForm;
-
 
 
 
