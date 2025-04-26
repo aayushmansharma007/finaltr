@@ -6,9 +6,7 @@ const RegistrationList = () => {
   const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    localStorage.getItem('isAdminAuthenticated') === 'true'
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Remove localStorage check
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -17,45 +15,36 @@ const RegistrationList = () => {
   }, [isAuthenticated]);
 
   const fetchRegistrations = async () => {
-    const endpoints = [
-      'https://lanostechbackend.onrender.com/registered/users',
-      'http://localhost:8080/registered/users'
-    ];
+    const endpoint = 'https://lanostechbackend.onrender.com/registered/users';
 
-    let succeeded = false;
+    try {
+      const response = await fetch(endpoint, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      });
 
-    for (const endpoint of endpoints) {
-      try {
-        const response = await fetch(endpoint, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          const registrationsArray = data.content || [];
-          setRegistrations(registrationsArray);
-          setLoading(false);
-          succeeded = true;
-          break;
-        }
-      } catch (err) {
-        console.error(`Error fetching from ${endpoint}:`, err);
+      if (response.ok) {
+        const data = await response.json();
+        const registrationsArray = data.content || [];
+        setRegistrations(registrationsArray);
+        setLoading(false);
+      } else {
+        setError('Failed to fetch registrations');
+        setLoading(false);
       }
-    }
-
-    if (!succeeded) {
+    } catch (err) {
+      console.error(`Error fetching from ${endpoint}:`, err);
       setError('Failed to fetch registrations');
       setLoading(false);
     }
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('isAdminAuthenticated');
     setIsAuthenticated(false);
+    // Remove localStorage.removeItem line
   };
 
   if (!isAuthenticated) {
@@ -132,5 +121,8 @@ const RegistrationList = () => {
 };
 
 export default RegistrationList;
+
+
+
 
 

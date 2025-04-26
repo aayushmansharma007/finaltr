@@ -46,50 +46,40 @@ const RegistrationForm = ({ onClose }) => {
     
     setStatus({ type: 'loading', message: 'Submitting...' });
 
-    const endpoints = [
-      'https://lanostechbackend.onrender.com/registered/add/users',
-      'http://localhost:8080/registered/add/users'
-    ];
+    const endpoint = 'https://lanostechbackend.onrender.com/registered/add/users';
 
-    let succeeded = false;
-    let lastError = null;
+    // Format the data according to backend requirements
+    const requestData = {
+      name: formData.name.trim(),
+      collegeName: formData.collegeName.trim(),
+      mobileNumber: formData.mobileNumber.trim(),
+      applyingFor: formData.applyingFor.toUpperCase(), // Convert to uppercase to match enum
+      registrationDate: new Date().toISOString().split('T')[0]
+    };
 
-    for (const endpoint of endpoints) {
-      try {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            ...formData,
-            applyingFor: formData.applyingFor.toUpperCase()
-          })
-        });
-
-        if (response.ok) {
-          succeeded = true;
-          setStatus({ type: 'success', message: 'Registration successful!' });
-          setTimeout(() => {
-            onClose();
-          }, 2000);
-          break;
-        } else {
-          // Store the error response
-          const errorData = await response.text();
-          lastError = `Server error: ${errorData}`;
-        }
-      } catch (error) {
-        console.log(`Failed to submit to ${endpoint}:`, error);
-        lastError = error.message;
-      }
-    }
-
-    if (!succeeded) {
-      setStatus({ 
-        type: 'error', 
-        message: `Registration failed: ${lastError || 'Unable to connect to server'}` 
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
       });
+
+      if (response.ok) {
+        setStatus({ type: 'success', message: 'Registration successful!' });
+        setTimeout(() => {
+          onClose();
+        }, 2000);
+      } else {
+        const errorData = await response.json();
+        console.error('Server response:', errorData);
+        setStatus({ type: 'error', message: 'Registration failed. Please try again.' });
+      }
+    } catch (err) {
+      console.error(`Error submitting to ${endpoint}:`, err);
+      setStatus({ type: 'error', message: 'Registration failed. Please try again.' });
     }
   };
 
@@ -152,9 +142,9 @@ const RegistrationForm = ({ onClose }) => {
           required
         >
           <option value="">Select an option</option>
-          <option value="internship">Internship</option>
-          <option value="learning">Learning</option>
-          <option value="consultancy">Consultancy</option>
+          <option value="INTERNSHIP">Internship</option>
+          <option value="LEARNING">Learning</option>
+          <option value="CONSULTANCY">Consultancy</option>
         </select>
       </div>
 
@@ -180,6 +170,12 @@ const RegistrationForm = ({ onClose }) => {
 };
 
 export default RegistrationForm;
+
+
+
+
+
+
 
 
 

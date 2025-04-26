@@ -9,7 +9,7 @@ const AdminLogin = ({ onLogin }) => {
     e.preventDefault();
     if (credentials.username === 'lanos' && credentials.password === 'lanostech') {
       onLogin(true);
-      localStorage.setItem('isAdminAuthenticated', 'true');
+      // Remove localStorage.setItem line
     } else {
       setError('Invalid credentials');
     }
