@@ -17,8 +17,33 @@ const RegistrationForm = ({ onClose }) => {
     });
   };
 
+  const validateForm = () => {
+    if (!formData.name.trim()) {
+      setStatus({ type: 'error', message: 'Name is required' });
+      return false;
+    }
+    if (!formData.collegeName.trim()) {
+      setStatus({ type: 'error', message: 'College name is required' });
+      return false;
+    }
+    if (!formData.mobileNumber.trim()) {
+      setStatus({ type: 'error', message: 'Mobile number is required' });
+      return false;
+    }
+    if (!formData.applyingFor) {
+      setStatus({ type: 'error', message: 'Please select what you are applying for' });
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setStatus({ type: 'loading', message: 'Submitting...' });
 
     const endpoints = [
@@ -27,6 +52,7 @@ const RegistrationForm = ({ onClose }) => {
     ];
 
     let succeeded = false;
+    let lastError = null;
 
     for (const endpoint of endpoints) {
       try {
@@ -48,16 +74,21 @@ const RegistrationForm = ({ onClose }) => {
             onClose();
           }, 2000);
           break;
+        } else {
+          // Store the error response
+          const errorData = await response.text();
+          lastError = `Server error: ${errorData}`;
         }
       } catch (error) {
         console.log(`Failed to submit to ${endpoint}:`, error);
+        lastError = error.message;
       }
     }
 
     if (!succeeded) {
       setStatus({ 
         type: 'error', 
-        message: 'Failed to submit registration. Please try again.' 
+        message: `Registration failed: ${lastError || 'Unable to connect to server'}` 
       });
     }
   };
@@ -149,6 +180,8 @@ const RegistrationForm = ({ onClose }) => {
 };
 
 export default RegistrationForm;
+
+
 
 
 
