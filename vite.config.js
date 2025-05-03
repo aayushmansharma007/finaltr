@@ -6,5 +6,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     chunkSizeWarningLimit: 700, // Increase from default 500 to 700 KB
+    rollupOptions: {
+      // Ensure external dependencies are properly handled
+      external: [],
+      output: {
+        manualChunks: undefined
+      }
+    }
   }
 })
