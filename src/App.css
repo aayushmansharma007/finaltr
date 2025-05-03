@@ -1,6 +1,7 @@
-<<<<<<< HEAD
-/* Add this at the top of the file */
+/* Base styles */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -12,23 +13,12 @@ body, html {
 }
 
 .app {
-  padding-top: 0; /* Remove this top padding */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-=======
-/* Base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Fix for horizontal scrolling */
-.app {
   width: 100%;
   overflow-x: hidden;
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Fix for Three.js canvas */
@@ -45,6 +35,14 @@ canvas {
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  padding: 80px 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 body {
@@ -731,31 +729,10 @@ textarea.form-input {
 /* Add these styles for the 3D animation effects */
 .app {
   position: relative;
->>>>>>> dbffa89 (Initial commit)
   overflow-x: hidden;
   width: 100%;
 }
 
-<<<<<<< HEAD
-main {
-  flex: 1;
-  width: 100%;
-  padding: 80px 20px 0; /* Add top padding here instead */
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .app {
-    padding-top: 56px;
-  }
-
-  main {
-    padding: 60px 15px 0; /* Slightly less padding on mobile */
-    margin-top: 0;
-  }
-}
-=======
 /* Create a glass-like effect for content sections */
 section {
   position: relative;
@@ -930,4 +907,3 @@ canvas {
 
 
 
->>>>>>> dbffa89 (Initial commit)
