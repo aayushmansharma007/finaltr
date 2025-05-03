@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import './App.css'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Services from './components/Services'
-import Research from './components/Research'
-import Benefits from './components/Benefits'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import AdvancedThree from './components/AdvancedThree'
-import ScrollAnimation from './components/ScrollAnimation'
+import { useState, useEffect, lazy, Suspense } from 'react';
+import './App.css';
+// Import core components normally
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ScrollAnimation from './components/ScrollAnimation';
+
+// Lazy load other components
+const Hero = lazy(() => import('./components/Hero'));
+const About = lazy(() => import('./components/About'));
+const Services = lazy(() => import('./components/Services'));
+const Research = lazy(() => import('./components/Research'));
+const Benefits = lazy(() => import('./components/Benefits'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const Contact = lazy(() => import('./components/Contact'));
+const AdvancedThree = lazy(() => import('./components/AdvancedThree'));
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -35,17 +38,19 @@ const App = () => {
 
   return (
     <div className="app">
-      {showThree && <AdvancedThree />}
+      {showThree && <Suspense fallback={<div>Loading 3D...</div>}><AdvancedThree /></Suspense>}
       <ScrollAnimation />
       <Header />
       <main>
-        <Hero />
-        <About />
-        <Services />
-        <Research />
-        <Benefits />
-        <Testimonials />
-        <Contact />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Hero />
+          <About />
+          <Services />
+          <Research />
+          <Benefits />
+          <Testimonials />
+          <Contact />
+        </Suspense>
       </main>
       <Footer />
     </div>
@@ -53,8 +58,3 @@ const App = () => {
 }
 
 export default App
-
-
-
-
-
