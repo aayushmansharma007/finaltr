@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Add this at the top of the file */
 * {
   box-sizing: border-box;
@@ -15,10 +16,727 @@ body, html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+=======
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fix for horizontal scrolling */
+.app {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fix for Three.js canvas */
+canvas {
+  display: block;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+/* Container with max-width to prevent overflow */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--dark-bg);
+}
+
+/* Header */
+.header {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+/* Add padding to sections to prevent heading clash with navbar */
+section {
+  padding: 100px 0 80px;
+  scroll-margin-top: 80px; /* This creates space for the fixed header */
+}
+
+/* Adjust hero section to account for fixed header */
+.hero {
+  padding-top: 80px;
+}
+
+/* Adjust section titles to have proper spacing */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* Services section specific styling */
+.services, .research {
+  background-color: var(--dark-bg);
+}
+
+.services-section {
+  margin-bottom: 60px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--light-text);
+}
+
+.header h1 {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.header nav ul li {
+  margin-left: 20px;
+}
+
+.header nav ul li a {
+  text-decoration: none;
+  color: var(--light-text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.header nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+/* Hero section */
+.hero {
+  background-color: var(--dark-bg);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 72px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: var(--light-text);
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: var(--text-color);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cta-button:hover {
+  background-color: #7e22ce;
+}
+
+.cta-button svg {
+  margin-left: 8px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--light-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.scroll-indicator span {
+  margin-bottom: 8px;
+}
+
+.scroll-indicator svg {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 60px 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-link {
+  color: var(--light-text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Contact section */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.contact-info, .contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form {
+  background-color: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info ul {
+  list-style: none;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 15px;
+  color: var(--light-text);
+}
+
+.contact-info h3, .contact-form h3 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.contact-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: var(--light-text);
+  font-weight: 500;
+}
+
+.form-input {
+  padding: 12px 15px;
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 5px;
+  color: var(--light-text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+textarea.form-input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-note {
+  font-size: 14px;
+  color: var(--text-color);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.contact-form .cta-button {
+  align-self: flex-start;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: linear-gradient(45deg, #6366f1, #4f46e5);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form .cta-button:hover {
+  background: linear-gradient(45deg, #4f46e5, #6366f1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Form status messages */
+.form-status {
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.form-status.success {
+  background-color: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.form-status.error {
+  background-color: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.contact-form .cta-button:disabled {
+  background: linear-gradient(45deg, #6366f1, #4f46e5);
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Additional styles for components */
+
+/* About section */
+.about {
+  background-color: var(--light-bg);
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mission-vision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.mission, .vision {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Services section */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background-color: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 10px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.service-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.section-subtitle {
+  color: var(--light-text);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+
+/* Research section */
+.research {
+  background-color: var(--light-bg);
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.research-card {
+  background-color: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 10px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.research-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.research-details {
+  margin-top: 20px;
+}
+
+.research-details h4 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.research-team, .research-milestone, .research-collaborate {
+  margin-top: 20px;
+}
+
+/* Benefits section */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.benefit-card {
+  padding: 25px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Testimonials section */
+.testimonials {
+  background-color: var(--light-bg);
+}
+
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.testimonial {
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.testimonial blockquote {
+  font-style: italic;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.testimonial blockquote::before {
+  content: '"';
+  font-size: 40px;
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  color: var(--primary-color);
+  opacity: 0.3;
+}
+
+.testimonial cite {
+  font-weight: 500;
+  display: block;
+  text-align: right;
+}
+
+.team-culture, .insights {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.news-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.news-link:hover {
+  text-decoration: underline;
+}
+
+/* Additional styles for dark theme */
+.about, .research, .testimonials {
+  background-color: var(--light-bg);
+}
+
+.mission, .vision, .service-card, .research-project, .benefit-card, .testimonial, .team-culture, .insights {
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.section-title {
+  color: var(--primary-color);
+}
+
+.section-subtitle {
+  color: var(--light-text);
+}
+
+.footer {
+  background-color: #0a0a0a;
+}
+
+.contact-form input, .contact-form textarea {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  color: var(--light-text);
+}
+
+.contact-form label {
+  color: var(--light-text);
+}
+
+.form-note {
+  color: #aaa;
+}
+
+.news-link {
+  color: var(--primary-color);
+}
+
+.news-link:hover {
+  color: var(--primary-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .header nav ul {
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .header nav ul li {
+    margin: 5px 10px;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .contact-container, 
+  .footer-content {
+    flex-direction: column;
+  }
+}
+
+/* Add these styles for the 3D animation effects */
+.app {
+  position: relative;
+>>>>>>> dbffa89 (Initial commit)
   overflow-x: hidden;
   width: 100%;
 }
 
+<<<<<<< HEAD
 main {
   flex: 1;
   width: 100%;
@@ -37,3 +755,179 @@ main {
     margin-top: 0;
   }
 }
+=======
+/* Create a glass-like effect for content sections */
+section {
+  position: relative;
+  z-index: 1;
+  margin: 40px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Add subtle glass effect to cards and sections */
+.benefit-card, 
+.testimonial-card,
+.contact-form,
+.hero-content {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(17, 17, 17, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover, 
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+/* Enhance buttons with glow effect */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #6366f1, #4f46e5);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+
+.cta-button:hover {
+  background: linear-gradient(45deg, #4f46e5, #6366f1);
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.cta-button:hover::after {
+  animation: shine 1.5s ease-out;
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% {
+    left: -50%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+/* Ensure canvas is properly sized */
+canvas {
+  display: block;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+/* Scroll Animation Styles */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Different animation styles */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scale-in.animated {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delay classes for staggered animations */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+
+
+
+
+
+
+
+>>>>>>> dbffa89 (Initial commit)

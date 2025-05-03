@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+<<<<<<< HEAD
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#1a1a1a">
@@ -34,3 +35,54 @@
 </html>
 
 
+=======
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lanos - Agile EdTech & R&D Startup</title>
+    <style>
+      /* Fallback styles in case CSS fails to load */
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        min-height: 100vh;
+      }
+      .fallback {
+        padding: 20px;
+        text-align: center;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Fallback content if JS fails -->
+      <div class="fallback">
+        <h1>Lanos</h1>
+        <p>Loading application...</p>
+        <p>If this message persists, please ensure JavaScript is enabled in your browser.</p>
+      </div>
+    </div>
+    <script>
+      // Simple error tracking
+      window.addEventListener('error', function(e) {
+        console.error('Global error caught:', e.error || e.message);
+        const rootEl = document.getElementById('root');
+        if (rootEl) {
+          rootEl.innerHTML = `
+            <div style="color: white; padding: 20px; text-align: center;">
+              <h2>Something went wrong</h2>
+              <p>Error: ${e.error ? e.error.message : e.message}</p>
+              <p>Please check the browser console for more details.</p>
+            </div>
+          `;
+        }
+      });
+    </script>
+  </body>
+</html>
+>>>>>>> dbffa89 (Initial commit)
