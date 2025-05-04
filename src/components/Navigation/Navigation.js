@@ -62,6 +62,11 @@ const Navigation = () => {
     };
   }, [toggleScrollLock]);
 
+  // Add this function to handle animation delays
+  const getNavItemDelay = (index) => {
+    return { '--i': index };
+  };
+
   return (
     <nav className={`main-nav ${visible ? 'nav-visible' : 'nav-hidden'}`}>
       <div className="nav-container">
@@ -81,12 +86,12 @@ const Navigation = () => {
         </button>
 
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-          <li><Link to="/about" onClick={closeMenu}>About</Link></li>
-          <li><Link to="/services" onClick={closeMenu}>Services</Link></li>
-          <li><Link to="/careers" onClick={closeMenu}>Careers</Link></li>
-          <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
-          <li>
+          <li style={getNavItemDelay(1)}><Link to="/" onClick={closeMenu}>Home</Link></li>
+          <li style={getNavItemDelay(2)}><Link to="/about" onClick={closeMenu}>About</Link></li>
+          <li style={getNavItemDelay(3)}><Link to="/services" onClick={closeMenu}>Services</Link></li>
+          <li style={getNavItemDelay(4)}><Link to="/careers" onClick={closeMenu}>Careers</Link></li>
+          <li style={getNavItemDelay(5)}><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
+          <li style={getNavItemDelay(6)}>
             <button 
               className="register-btn"
               onClick={() => {
