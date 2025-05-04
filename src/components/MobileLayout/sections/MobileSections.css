@@ -1,0 +1,136 @@
+.mobile-section {
+  padding: 20px;
+  min-height: 100%;
+}
+
+.mobile-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #0066cc;
+  text-align: center;
+}
+
+.mobile-section p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+  text-align: center;
+}
+
+.mobile-hero {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.mobile-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #0066cc;
+}
+
+.mobile-hero h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.mobile-cta {
+  margin: 25px 0;
+}
+
+.primary-btn {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* About section styles */
+.about-image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Services section styles */
+.service-item {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Contact section styles */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-info {
+  margin-top: 30px;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+  margin-right: 15px;
+  font-size: 1.2rem;
+}

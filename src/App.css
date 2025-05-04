@@ -1,4 +1,4 @@
-/* Mobile-first responsive improvements */
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +10,6 @@ body, html {
   overflow-x: hidden;
   width: 100%;
   position: relative;
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
 }
 
 .app {
@@ -20,82 +19,6 @@ body, html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-/* Responsive typography */
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
-h3 { font-size: clamp(1.2rem, 3vw, 1.8rem); }
-p { font-size: clamp(1rem, 2vw, 1.1rem); }
-
-/* Improved container with responsive padding */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 max(20px, 5%);
-  box-sizing: border-box;
-}
-
-/* Responsive main content */
-main {
-  flex: 1;
-  width: 100%;
-  padding: 80px max(20px, 5%) 0;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Improved mobile navigation */
-@media (max-width: 768px) {
-  .header .container {
-    padding: 10px 15px;
-  }
-  
-  section {
-    padding: 60px 0;
-    scroll-margin-top: 60px;
-  }
-  
-  .hero {
-    padding-top: 60px;
-  }
-}
-
-/* Touch-friendly buttons and links */
-button, 
-.btn, 
-a.btn, 
-.nav-links a {
-  min-height: 44px;
-  min-width: 44px;
-  padding: 10px 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Improved form elements for mobile */
-input, 
-select, 
-textarea {
-  font-size: 16px; /* Prevents iOS zoom on focus */
-  padding: 12px;
-  border-radius: 8px;
-  width: 100%;
-}
-
-/* Responsive images */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Responsive grid layouts */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
 }
 
 /* Fix for Three.js canvas */
