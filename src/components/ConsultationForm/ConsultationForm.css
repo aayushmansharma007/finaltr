@@ -7,11 +7,12 @@
 
 .consultation-form {
   width: 100%;
-  color: #333;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
-  box-sizing: border-box;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  padding: 25px;
+  border-radius: 12px;
+  background-color: var(--card-background);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .consultation-form h2 {
@@ -25,26 +26,32 @@
 
 .form-group {
   margin-bottom: 1.25rem;
-  width: 100%;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #4a5568;
+  color: var(--text-primary);
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
   width: 100%;
-  max-width: 100%; /* Ensure inputs don't overflow */
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  box-sizing: border-box;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-background);
+  color: var(--text-primary);
+  font-size: 16px; /* Prevents iOS zoom */
+  transition: border-color 0.3s ease;
+  -webkit-appearance: none; /* Removes iOS default styling */
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 .form-group input:focus,
@@ -56,22 +63,18 @@
 
 .form-actions {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  width: 100%;
+  gap: 15px;
+  margin-top: 1.5rem;
 }
 
 .submit-btn,
 .cancel-btn {
-  flex: 1;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius: 8px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap; /* Prevent button text from wrapping */
+  transition: all 0.3s ease;
+  min-height: 48px; /* Touch-friendly */
 }
 
 .submit-btn {
@@ -122,10 +125,11 @@
 /* Mobile Styles */
 @media (max-width: 480px) {
   .consultation-form {
-    padding: 15px;
+    padding: 20px 15px;
     margin: 0;
     width: 100%;
     min-width: 0;
+    border-radius: 8px;
   }
 
   .consultation-form h2 {
@@ -151,17 +155,12 @@
 
   .form-actions {
     flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    padding: 0;
+    gap: 10px;
   }
 
   .submit-btn,
   .cancel-btn {
     width: 100%;
-    padding: 0.625rem;
-    font-size: 0.95rem;
-    margin: 0;
   }
 }
 
